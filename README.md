@@ -12,7 +12,7 @@ Spring 2019 @ Boston University  <br/>
    - IR receiver and photodiode pair TODO link
    - Two 10 kΩ resistors 
    - One 100 Ω resistor 
-   - One 68kΩ resistor
+   - One 68 kΩ resistor
    - Optional: One LED for debugging 
    - Optional: One breadboard for debugging
 
