@@ -60,8 +60,16 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define MCO_Pin GPIO_PIN_0
 #define MCO_GPIO_Port GPIOA
+#define LSM9DS1_SCK_Pin GPIO_PIN_1
+#define LSM9DS1_SCK_GPIO_Port GPIOA
 #define VCP_TX_Pin GPIO_PIN_2
 #define VCP_TX_GPIO_Port GPIOA
+#define LSM9DS1_MISO_Pin GPIO_PIN_6
+#define LSM9DS1_MISO_GPIO_Port GPIOA
+#define LSM9DS1_MOSI_Pin GPIO_PIN_7
+#define LSM9DS1_MOSI_GPIO_Port GPIOA
+#define LSM9DS1_CSN_Pin GPIO_PIN_0
+#define LSM9DS1_CSN_GPIO_Port GPIOB
 #define SWDIO_Pin GPIO_PIN_13
 #define SWDIO_GPIO_Port GPIOA
 #define SWCLK_Pin GPIO_PIN_14
