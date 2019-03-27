@@ -1,42 +1,50 @@
-"C:\Users\ajm2050\Documents\Personal Projects\seedDispenserCar\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_uart_ex.c"
+"C:\Users\ajm2050\Documents\Personal Projects\seed_dispenser_car\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_uart_ex.c"
 -std=c99
 -ferror-limit=100
 -I
-C:\Users\ajm2050\Documents\Personal Projects\seedDispenserCar\EWARM/../Inc
+C:\Users\ajm2050\Documents\Personal Projects\seed_dispenser_car\EWARM/../Inc
 -I
-C:\Users\ajm2050\Documents\Personal Projects\seedDispenserCar\EWARM/../Drivers/STM32L4xx_HAL_Driver/Inc
+C:\Users\ajm2050\Documents\Personal Projects\seed_dispenser_car\EWARM/../Drivers/STM32L4xx_HAL_Driver/Inc
 -I
-C:\Users\ajm2050\Documents\Personal Projects\seedDispenserCar\EWARM/../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy
+C:\Users\ajm2050\Documents\Personal Projects\seed_dispenser_car\EWARM/../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy
 -I
-C:\Users\ajm2050\Documents\Personal Projects\seedDispenserCar\EWARM/../Middlewares/Third_Party/FreeRTOS/Source/include
+C:\Users\ajm2050\Documents\Personal Projects\seed_dispenser_car\EWARM/../Middlewares/Third_Party/FreeRTOS/Source/include
 -I
-C:\Users\ajm2050\Documents\Personal Projects\seedDispenserCar\EWARM/../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS
+C:\Users\ajm2050\Documents\Personal Projects\seed_dispenser_car\EWARM/../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS
 -I
-C:\Users\ajm2050\Documents\Personal Projects\seedDispenserCar\EWARM/../Middlewares/Third_Party/FreeRTOS/Source/portable/IAR/ARM_CM4F
+C:\Users\ajm2050\Documents\Personal Projects\seed_dispenser_car\EWARM/../Middlewares/Third_Party/FreeRTOS/Source/portable/IAR/ARM_CM4F
 -I
-C:\Users\ajm2050\Documents\Personal Projects\seedDispenserCar\EWARM/../Drivers/CMSIS/Device/ST/STM32L4xx/Include
+C:\Users\ajm2050\Documents\Personal Projects\seed_dispenser_car\EWARM/../Drivers/CMSIS/Device/ST/STM32L4xx/Include
 -I
-C:\Users\ajm2050\Documents\Personal Projects\seedDispenserCar\EWARM/../Drivers/CMSIS/Include
+C:\Users\ajm2050\Documents\Personal Projects\seed_dispenser_car\EWARM/../Drivers/CMSIS/Include
+-I
+C:\Users\ajm2050\Documents\Personal Projects\seed_dispenser_car\EWARM/../Drivers/LSM9DS1_Driver/Src
+-I
+C:\Users\ajm2050\Documents\Personal Projects\seed_dispenser_car\EWARM/../Drivers/LSM9DS1_Driver/Inc
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\inc
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\inc\c
 -I
-C:\Users\ajm2050\Documents\Personal Projects\seedDispenserCar\Inc
+C:\Users\ajm2050\Documents\Personal Projects\seed_dispenser_car\Inc
 -I
-C:\Users\ajm2050\Documents\Personal Projects\seedDispenserCar\Drivers\STM32L4xx_HAL_Driver\Inc
+C:\Users\ajm2050\Documents\Personal Projects\seed_dispenser_car\Drivers\STM32L4xx_HAL_Driver\Inc
 -I
-C:\Users\ajm2050\Documents\Personal Projects\seedDispenserCar\Drivers\STM32L4xx_HAL_Driver\Inc\Legacy
+C:\Users\ajm2050\Documents\Personal Projects\seed_dispenser_car\Drivers\STM32L4xx_HAL_Driver\Inc\Legacy
 -I
-C:\Users\ajm2050\Documents\Personal Projects\seedDispenserCar\Middlewares\Third_Party\FreeRTOS\Source\include
+C:\Users\ajm2050\Documents\Personal Projects\seed_dispenser_car\Middlewares\Third_Party\FreeRTOS\Source\include
 -I
-C:\Users\ajm2050\Documents\Personal Projects\seedDispenserCar\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS
+C:\Users\ajm2050\Documents\Personal Projects\seed_dispenser_car\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS
 -I
-C:\Users\ajm2050\Documents\Personal Projects\seedDispenserCar\Middlewares\Third_Party\FreeRTOS\Source\portable\IAR\ARM_CM4F
+C:\Users\ajm2050\Documents\Personal Projects\seed_dispenser_car\Middlewares\Third_Party\FreeRTOS\Source\portable\IAR\ARM_CM4F
 -I
-C:\Users\ajm2050\Documents\Personal Projects\seedDispenserCar\Drivers\CMSIS\Device\ST\STM32L4xx\Include
+C:\Users\ajm2050\Documents\Personal Projects\seed_dispenser_car\Drivers\CMSIS\Device\ST\STM32L4xx\Include
 -I
-C:\Users\ajm2050\Documents\Personal Projects\seedDispenserCar\Drivers\CMSIS\Include
+C:\Users\ajm2050\Documents\Personal Projects\seed_dispenser_car\Drivers\CMSIS\Include
+-I
+C:\Users\ajm2050\Documents\Personal Projects\seed_dispenser_car\Drivers\LSM9DS1_Driver\Src
+-I
+C:\Users\ajm2050\Documents\Personal Projects\seed_dispenser_car\Drivers\LSM9DS1_Driver\Inc
 -DUSE_HAL_DRIVER=1
 -DSTM32L432xx=1
 -D__CHAR_BITS__=8

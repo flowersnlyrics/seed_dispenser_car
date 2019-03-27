@@ -94,7 +94,8 @@ int main(void)
   MX_USART2_UART_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-
+  usart_clear_screen(); 
+  usart_print_ln("Seed Dispenser Car Starting");
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */

@@ -4,12 +4,43 @@ stlinkfoundProbes=
 CStepIntDis=_ 0
 LeaveTargetRunning=_ 0
 [DebugChecksum]
-Checksum=591392646
+Checksum=1249950469
 [Exceptions]
 StopOnUncaught=_ 0
 StopOnThrow=_ 0
 [CodeCoverage]
 Enabled=_ 0
+[Stack]
+FillEnabled=0
+OverflowWarningsEnabled=1
+WarningThreshold=90
+SpWarningsEnabled=1
+WarnLogOnly=1
+UseTrigger=1
+TriggerName=main
+LimitSize=0
+ByteLimit=50
+[CallStack]
+ShowArgs=0
+[Disassembly]
+MixedMode=1
+[SWOTraceHWSettings]
+OverrideDefaultClocks=0
+CpuClock=32000000
+ClockAutoDetect=0
+ClockWanted=2000000
+JtagSpeed=2000000
+Prescaler=16
+TimeStampPrescIndex=0
+TimeStampPrescData=0
+PcSampCYCTAP=1
+PcSampPOSTCNT=15
+PcSampIndex=0
+DataLogMode=0
+ITMportsEnable=0
+ITMportsTermIO=0
+ITMportsLogFile=0
+ITMlogFile=$PROJ_DIR$\ITM.log
 [Trace2]
 Enabled=0
 ShowSource=0
@@ -50,16 +81,11 @@ ShowTimeLog=1
 SumEnabled=0
 ShowTimeSum=1
 SumSortOrder=0
-[Stack]
-FillEnabled=0
-OverflowWarningsEnabled=1
-WarningThreshold=90
-SpWarningsEnabled=1
-WarnLogOnly=1
-UseTrigger=1
-TriggerName=main
-LimitSize=0
-ByteLimit=50
+[Disassemble mode]
+mode=0
+[Breakpoints2]
+Bp0=_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\Src\main.c}.98.3" 0 0 1 "" 0 "" 0
+Count=1
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
@@ -67,10 +93,9 @@ Category=_ 0
 [TermIOLog]
 LoggingEnabled=_ 0
 LogFile=_ ""
-[CallStack]
-ShowArgs=0
-[Disassembly]
-MixedMode=1
+[Aliases]
+Count=0
+SuppressDialog=0
 [DriverProfiling]
 Enabled=0
 Mode=3
@@ -80,28 +105,4 @@ Exclusions=
 [CallStackLog]
 Enabled=0
 [CallStackStripe]
-ShowTiming=160
-[SWOTraceHWSettings]
-OverrideDefaultClocks=0
-CpuClock=32000000
-ClockAutoDetect=0
-ClockWanted=2000000
-JtagSpeed=2000000
-Prescaler=16
-TimeStampPrescIndex=0
-TimeStampPrescData=0
-PcSampCYCTAP=1
-PcSampPOSTCNT=15
-PcSampIndex=0
-DataLogMode=0
-ITMportsEnable=0
-ITMportsTermIO=0
-ITMportsLogFile=0
-ITMlogFile=$PROJ_DIR$\ITM.log
-[Disassemble mode]
-mode=0
-[Breakpoints2]
-Count=0
-[Aliases]
-Count=0
-SuppressDialog=0
+ShowTiming=1

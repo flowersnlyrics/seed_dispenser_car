@@ -40,6 +40,36 @@ void MX_USART2_UART_Init(void);
 
 /* USER CODE BEGIN Prototypes */
 
+/*!
+ * Print a string
+ * @param array A pointer to a char array
+ */
+void usart_print(char * array); 
+
+/*!
+ * Print a string with a newline character at the end
+ * @param array A pointer to a char array
+ */
+void usart_print_ln(char * array); 
+
+/*!
+ * Print an unsigned 16 bit number in hex format
+ * @param number Value to print
+ */
+void usart_print_num_hex(uint16_t number);
+
+/*!
+ * Print an unsigned 16 bit number in binary format
+ * @param number Value to print
+ */
+void usart_print_num_bin(uint16_t number);
+
+/*!
+ * Clears the uart screen
+ * @param void
+ */
+void usart_clear_screen(void);
+
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

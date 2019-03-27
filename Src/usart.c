@@ -109,7 +109,85 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 } 
 
 /* USER CODE BEGIN 1 */
+void usart_print(char * array){
+	uint8_t i = 0;
+	while(array[i] != '\0'){
+		i++;
+	}
+	HAL_UART_Transmit(&huart2,(uint8_t *)array,i,1000);
+}
 
+void usart_print_ln(char *array){
+	uint8_t i = 0;
+	uint8_t endLineChars[2] = {0};
+
+	endLineChars[0] = '\n';
+	endLineChars[1] = '\r';
+
+	while(array[i] != '\0'){
+		i++;
+	}
+	HAL_UART_Transmit(&huart2,(uint8_t *)array,i,1000);
+	HAL_UART_Transmit(&huart2,(uint8_t *)endLineChars,2,1000);
+
+}
+void usart_print_num_hex(uint16_t number){
+	char tempArray[7] = {'0','x','0','0','0','0','\0'};
+	char hexArray[16] = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+	uint16_t temp2 = number;
+	int trackNum = 0;
+
+
+	for(int i = 4; i >= 0; i--){
+		if(trackNum == 0){
+			trackNum = trackNum + 2;
+
+		}else if((trackNum == 1) | (trackNum == 6) | (trackNum == 11)| (trackNum == 16)){
+			trackNum++;
+		}
+
+		tempArray[trackNum]= hexArray[((temp2 & 0xf000) >> 12)];
+		temp2 = temp2 << 4;
+		trackNum++;
+	}
+
+	usart_print_ln(tempArray);
+}
+void usart_print_num_bin(uint16_t number){
+	char tempArray[22] = {'0','b','0','0','0','0','_','0','0','0','0','_','0','0','0','0','_','0','0','0','0','\0'};
+	uint16_t temp2 = number;
+	int trackNum = 0;
+
+	for(int i = 15; i >= 0; i--){
+
+		if(trackNum == 0){
+			trackNum = trackNum + 2;
+		}else if((trackNum == 1) | (trackNum == 6) | (trackNum == 11)| (trackNum == 16)){
+			trackNum++;
+		}
+
+		if((temp2 & 0x8000) >> 15 == 1){
+			tempArray[trackNum] = '1';
+		}else{
+			tempArray[trackNum] = '0';
+		}
+
+		trackNum++;
+		temp2 = temp2 << 1;
+
+	}
+
+	usart_print_ln(tempArray);
+}
+
+void usart_clear_screen(void)
+{
+    //Move cursor to 0,0
+    usart_print("\033[0;0H"); 
+
+    //Clear the screen
+    usart_print("\033[2J"); 
+}
 /* USER CODE END 1 */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
