@@ -1,6 +1,16 @@
 #ifndef __LSM9DS1_DRVR_H
 #define __LSM9DS1_DRVR_H
 
+#include "spi.h"
+#include "usart.h"
+
+extern SPI_HandleTypeDef hspi1;
+
+//Defines 
+#define LSM9DS1_READ_MODE                  (0x01 << 7)
+#define LSM9DS1_WRITE_MODE                 (0x00 << 7)
+#define SPI_TIMEOUT                        1000
+
 //Addresses
 #define LSM9DS1_ADDRESS_ACCELGYRO          (0x6B)
 #define LSM9DS1_ADDRESS_MAG                (0x1E)
@@ -84,56 +94,66 @@ typedef enum
 
 typedef enum
 {
-  LSM9DS1_ACCELRANGE_2G                = (0b00 << 3),
-  LSM9DS1_ACCELRANGE_16G               = (0b01 << 3),
-  LSM9DS1_ACCELRANGE_4G                = (0b10 << 3),
-  LSM9DS1_ACCELRANGE_8G                = (0b11 << 3),
+  LSM9DS1_ACCELRANGE_2G                = (0x00 << 3),
+  LSM9DS1_ACCELRANGE_16G               = (0x01 << 3),
+  LSM9DS1_ACCELRANGE_4G                = (0x02 << 3),
+  LSM9DS1_ACCELRANGE_8G                = (0x03 << 3),
 } lsm9ds1AccelRange_t;
 
 typedef enum
 {
-  LSM9DS1_ACCELDATARATE_POWERDOWN      = (0b0000 << 4),
-  LSM9DS1_ACCELDATARATE_3_125HZ        = (0b0001 << 4),
-  LSM9DS1_ACCELDATARATE_6_25HZ         = (0b0010 << 4),
-  LSM9DS1_ACCELDATARATE_12_5HZ         = (0b0011 << 4),
-  LSM9DS1_ACCELDATARATE_25HZ           = (0b0100 << 4),
-  LSM9DS1_ACCELDATARATE_50HZ           = (0b0101 << 4),
-  LSM9DS1_ACCELDATARATE_100HZ          = (0b0110 << 4),
-  LSM9DS1_ACCELDATARATE_200HZ          = (0b0111 << 4),
-  LSM9DS1_ACCELDATARATE_400HZ          = (0b1000 << 4),
-  LSM9DS1_ACCELDATARATE_800HZ          = (0b1001 << 4),
-  LSM9DS1_ACCELDATARATE_1600HZ         = (0b1010 << 4)
+  LSM9DS1_ACCELDATARATE_POWERDOWN      = (0x00 << 4),
+  LSM9DS1_ACCELDATARATE_3_125HZ        = (0x01 << 4),
+  LSM9DS1_ACCELDATARATE_6_25HZ         = (0x02 << 4),
+  LSM9DS1_ACCELDATARATE_12_5HZ         = (0x03 << 4),
+  LSM9DS1_ACCELDATARATE_25HZ           = (0x04 << 4),
+  LSM9DS1_ACCELDATARATE_50HZ           = (0x05 << 4),
+  LSM9DS1_ACCELDATARATE_100HZ          = (0x06 << 4),
+  LSM9DS1_ACCELDATARATE_200HZ          = (0x07 << 4),
+  LSM9DS1_ACCELDATARATE_400HZ          = (0x08 << 4),
+  LSM9DS1_ACCELDATARATE_800HZ          = (0x09 << 4),
+  LSM9DS1_ACCELDATARATE_1600HZ         = (0x0A << 4)
 } lm9ds1AccelDataRate_t;
 
 typedef enum
 {
-  LSM9DS1_MAGGAIN_4GAUSS               = (0b00 << 5),  // +/- 4 gauss
-  LSM9DS1_MAGGAIN_8GAUSS               = (0b01 << 5),  // +/- 8 gauss
-  LSM9DS1_MAGGAIN_12GAUSS              = (0b10 << 5),  // +/- 12 gauss
-  LSM9DS1_MAGGAIN_16GAUSS              = (0b11 << 5)   // +/- 16 gauss
+  LSM9DS1_MAGGAIN_4GAUSS               = (0x00 << 5),  // +/- 4 gauss
+  LSM9DS1_MAGGAIN_8GAUSS               = (0x01 << 5),  // +/- 8 gauss
+  LSM9DS1_MAGGAIN_12GAUSS              = (0x02 << 5),  // +/- 12 gauss
+  LSM9DS1_MAGGAIN_16GAUSS              = (0x03 << 5)   // +/- 16 gauss
 } lsm9ds1MagGain_t;
 
 typedef enum
 {
-  LSM9DS1_MAGDATARATE_3_125HZ          = (0b000 << 2),
-  LSM9DS1_MAGDATARATE_6_25HZ           = (0b001 << 2),
-  LSM9DS1_MAGDATARATE_12_5HZ           = (0b010 << 2),
-  LSM9DS1_MAGDATARATE_25HZ             = (0b011 << 2),
-  LSM9DS1_MAGDATARATE_50HZ             = (0b100 << 2),
-  LSM9DS1_MAGDATARATE_100HZ            = (0b101 << 2)
+  LSM9DS1_MAGDATARATE_3_125HZ          = (0x00 << 2),
+  LSM9DS1_MAGDATARATE_6_25HZ           = (0x01 << 2),
+  LSM9DS1_MAGDATARATE_12_5HZ           = (0x02 << 2),
+  LSM9DS1_MAGDATARATE_25HZ             = (0x03 << 2),
+  LSM9DS1_MAGDATARATE_50HZ             = (0x04 << 2),
+  LSM9DS1_MAGDATARATE_100HZ            = (0x05 << 2)
 } lsm9ds1MagDataRate_t;
 
 typedef enum
 {
-  LSM9DS1_GYROSCALE_245DPS             = (0b00 << 3),  // +/- 245 degrees per second rotation
-  LSM9DS1_GYROSCALE_500DPS             = (0b01 << 3),  // +/- 500 degrees per second rotation
-  LSM9DS1_GYROSCALE_2000DPS            = (0b11 << 3)   // +/- 2000 degrees per second rotation
+  LSM9DS1_GYROSCALE_245DPS             = (0x00 << 3),  // +/- 245 degrees per second rotation
+  LSM9DS1_GYROSCALE_500DPS             = (0x01 << 3),  // +/- 500 degrees per second rotation
+  LSM9DS1_GYROSCALE_2000DPS            = (0x03 << 3)   // +/- 2000 degrees per second rotation
 } lsm9ds1GyroScale_t;
 
-typedef struct vector_s
+/*! \enum
+ *
+ */
+typedef enum
 {
-  float x;
-  float y;
-  float z;
-} lsm9ds1Vector_t;
+    LSM9DS1_OK, 
+    LSM9DS1_INIT_ERR, 
+} LSM9DS1_status_t; 
+
+static int write16(uint8_t address, uint8_t value); 
+
+LSM9DS1_status_t LSM9DS1_driver_init(void);
+
+LSM9DS1_status_t LSM9DS1_driver_write(uint8_t address, uint8_t *data, uint8_t size); 
+
+LSM9DS1_status_t LSM9DS1_driver_read(uint8_t address, uint8_t *buf, uint8_t size); 
 #endif

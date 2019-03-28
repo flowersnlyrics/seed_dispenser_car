@@ -27,7 +27,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "LSM9DS1_Driver.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -95,7 +95,7 @@ int main(void)
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
   usart_clear_screen(); 
-  usart_print_ln("Seed Dispenser Car Starting");
+  usart_print_ln("Seed Dispenser Car Starting...");
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
