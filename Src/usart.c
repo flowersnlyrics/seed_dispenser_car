@@ -109,7 +109,8 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 } 
 
 /* USER CODE BEGIN 1 */
-void usart_print(char * array){
+void usart_print(char * array)
+{
 	uint8_t i = 0;
 	while(array[i] != '\0'){
 		i++;
@@ -117,7 +118,8 @@ void usart_print(char * array){
 	HAL_UART_Transmit(&huart2,(uint8_t *)array,i,1000);
 }
 
-void usart_print_ln(char *array){
+void usart_print_ln(char *array)
+{
 	uint8_t i = 0;
 	uint8_t endLineChars[2] = {0};
 
@@ -131,7 +133,8 @@ void usart_print_ln(char *array){
 	HAL_UART_Transmit(&huart2,(uint8_t *)endLineChars,2,1000);
 
 }
-void usart_print_num_hex(uint16_t number){
+void usart_print_num_hex(uint16_t number)
+{
 	char tempArray[7] = {'0','x','0','0','0','0','\0'};
 	char hexArray[16] = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
 	uint16_t temp2 = number;
@@ -153,7 +156,8 @@ void usart_print_num_hex(uint16_t number){
 
 	usart_print_ln(tempArray);
 }
-void usart_print_num_bin(uint16_t number){
+void usart_print_num_bin(uint16_t number)
+{
 	char tempArray[22] = {'0','b','0','0','0','0','_','0','0','0','0','_','0','0','0','0','_','0','0','0','0','\0'};
 	uint16_t temp2 = number;
 	int trackNum = 0;

@@ -149,11 +149,10 @@ typedef enum
     LSM9DS1_INIT_ERR, 
 } LSM9DS1_status_t; 
 
-static int write16(uint8_t address, uint8_t value); 
 
 LSM9DS1_status_t LSM9DS1_driver_init(void);
 
 LSM9DS1_status_t LSM9DS1_driver_write(uint8_t address, uint8_t *data, uint8_t size); 
 
-LSM9DS1_status_t LSM9DS1_driver_read(uint8_t address, uint8_t *buf, uint8_t size); 
+LSM9DS1_status_t LSM9DS1_driver_read(uint8_t address, uint8_t *tx_buf, uint8_t *rx_buf, uint8_t num_bytes); 
 #endif
