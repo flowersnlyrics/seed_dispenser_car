@@ -1,7 +1,7 @@
 [PreviousGenFiles]
-HeaderPath=C:/Users/ajm2050/Documents/Personal Projects/seedDispenserCar/Inc
+HeaderPath=C:/Users/jqd0718/Documents/Grad School/classes/se740/git_checkouts/seed_dispenser_car/Inc
 HeaderFiles=gpio.h;FreeRTOSConfig.h;usart.h;stm32l4xx_it.h;stm32l4xx_hal_conf.h;main.h;
-SourcePath=C:/Users/ajm2050/Documents/Personal Projects/seedDispenserCar/Src
+SourcePath=C:/Users/jqd0718/Documents/Grad School/classes/se740/git_checkouts/seed_dispenser_car/Src
 SourceFiles=gpio.c;freertos.c;usart.c;stm32l4xx_it.c;stm32l4xx_hal_msp.c;stm32l4xx_hal_timebase_tim.c;main.c;
 
 [PreviousLibFiles]

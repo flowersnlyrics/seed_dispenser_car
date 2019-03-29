@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\common\bin\cspybat" -f "C:\Users\ajm2050\Documents\Personal Projects\seedDispenserCar\EWARM\settings\seedDispenserCar.seedDispenserCar.general.xcl" --backend -f "C:\Users\ajm2050\Documents\Personal Projects\seedDispenserCar\EWARM\settings\seedDispenserCar.seedDispenserCar.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\common\bin\cspybat" -f "C:\Users\jqd0718\Documents\Grad School\classes\se740\git_checkouts\seed_dispenser_car\EWARM\settings\seedDispenserCar.seedDispenserCar.general.xcl" --backend -f "C:\Users\jqd0718\Documents\Grad School\classes\se740\git_checkouts\seed_dispenser_car\EWARM\settings\seedDispenserCar.seedDispenserCar.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\common\bin\cspybat" -f "C:\Users\ajm2050\Documents\Personal Projects\seedDispenserCar\EWARM\settings\seedDispenserCar.seedDispenserCar.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\ajm2050\Documents\Personal Projects\seedDispenserCar\EWARM\settings\seedDispenserCar.seedDispenserCar.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\common\bin\cspybat" -f "C:\Users\jqd0718\Documents\Grad School\classes\se740\git_checkouts\seed_dispenser_car\EWARM\settings\seedDispenserCar.seedDispenserCar.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\jqd0718\Documents\Grad School\classes\se740\git_checkouts\seed_dispenser_car\EWARM\settings\seedDispenserCar.seedDispenserCar.driver.xcl" 
 
 @echo off 
 :end
