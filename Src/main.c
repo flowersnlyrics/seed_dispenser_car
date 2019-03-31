@@ -29,7 +29,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "LSM9DS1_Driver.h"
-#include "motor_ctrl.h" 
+//#include "motor_ctrl.h" 
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -86,7 +86,7 @@ int main(void)
 
   /* Configure the system clock */
   SystemClock_Config();
-
+  
   /* USER CODE BEGIN SysInit */
 
   /* USER CODE END SysInit */
@@ -102,10 +102,10 @@ int main(void)
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
-  motor_ctrl_start(LEFT_MOTORS); 
-  motor_ctrl_start(RIGHT_MOTORS); 
-  while(1); 
-  //MX_FREERTOS_Init();
+  //motor_ctrl_start(LEFT_MOTORS); 
+  //motor_ctrl_start(RIGHT_MOTORS); 
+  //while(1); 
+  MX_FREERTOS_Init();
 
   /* Start scheduler */
   osKernelStart();
