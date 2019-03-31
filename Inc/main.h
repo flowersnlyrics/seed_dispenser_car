@@ -74,6 +74,14 @@ void Error_Handler(void);
 #define ADA_BOB_MISO_GPIO_Port GPIOA
 #define ADA_BOB_MOSI_Pin GPIO_PIN_7
 #define ADA_BOB_MOSI_GPIO_Port GPIOA
+#define MOTOR_IN1_dir2PinL_Pin GPIO_PIN_9
+#define MOTOR_IN1_dir2PinL_GPIO_Port GPIOA
+#define MOTOR_IN2_dir1PinL_Pin GPIO_PIN_10
+#define MOTOR_IN2_dir1PinL_GPIO_Port GPIOA
+#define MOTOR_IN3_dir2PinR_Pin GPIO_PIN_11
+#define MOTOR_IN3_dir2PinR_GPIO_Port GPIOA
+#define MOTOR_IN4_dir1PinR_Pin GPIO_PIN_12
+#define MOTOR_IN4_dir1PinR_GPIO_Port GPIOA
 #define SWDIO_Pin GPIO_PIN_13
 #define SWDIO_GPIO_Port GPIOA
 #define SWCLK_Pin GPIO_PIN_14
