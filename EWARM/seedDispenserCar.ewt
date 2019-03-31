@@ -1161,9 +1161,21 @@
   <group>
     <name>Application</name>
     <group>
-      <name>EWARM</name>
+      <name>car_ctrl</name>
       <file>
-        <name>$PROJ_DIR$\startup_stm32l432xx.s</name>
+        <name>$PROJ_DIR$\..\car_ctrl\car_ctrl.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\car_ctrl\car_ctrl.h</name>
+      </file>
+    </group>
+    <group>
+      <name>motor_ctrl</name>
+      <file>
+        <name>$PROJ_DIR$\..\motor_ctrl\motor_ctrl.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\motor_ctrl\motor_ctrl.h</name>
       </file>
     </group>
     <group>
@@ -1188,6 +1200,9 @@
       </file>
       <file>
         <name>$PROJ_DIR$\..\Src\stm32l4xx_it.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\Src\tim.c</name>
       </file>
       <file>
         <name>$PROJ_DIR$\..\Src\usart.c</name>
@@ -1280,6 +1295,12 @@
         <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_uart_ex.c</name>
       </file>
     </group>
+  </group>
+  <group>
+    <name>EWARM</name>
+    <file>
+      <name>$PROJ_DIR$\startup_stm32l432xx.s</name>
+    </file>
   </group>
   <group>
     <name>Middlewares</name>

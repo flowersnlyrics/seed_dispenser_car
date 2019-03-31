@@ -58,16 +58,14 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define MCO_Pin GPIO_PIN_0
-#define MCO_GPIO_Port GPIOA
 #define ADA_BOB_SCK_Pin GPIO_PIN_1
 #define ADA_BOB_SCK_GPIO_Port GPIOA
-#define VCP_TX_Pin GPIO_PIN_2
-#define VCP_TX_GPIO_Port GPIOA
+#define DEBUG_UART_TX_Pin GPIO_PIN_2
+#define DEBUG_UART_TX_GPIO_Port GPIOA
 #define MOTOR_CTRL_ENA_Pin GPIO_PIN_3
 #define MOTOR_CTRL_ENA_GPIO_Port GPIOA
-#define ADA_BOB_CS_Pin GPIO_PIN_4
-#define ADA_BOB_CS_GPIO_Port GPIOA
+#define ADA_BOB_ACS_Pin GPIO_PIN_4
+#define ADA_BOB_ACS_GPIO_Port GPIOA
 #define MOTOR_CTRL_ENB_Pin GPIO_PIN_5
 #define MOTOR_CTRL_ENB_GPIO_Port GPIOA
 #define ADA_BOB_MISO_Pin GPIO_PIN_6
@@ -82,14 +80,10 @@ void Error_Handler(void);
 #define MOTOR_IN3_dir2PinR_GPIO_Port GPIOA
 #define MOTOR_IN4_dir1PinR_Pin GPIO_PIN_12
 #define MOTOR_IN4_dir1PinR_GPIO_Port GPIOA
-#define SWDIO_Pin GPIO_PIN_13
-#define SWDIO_GPIO_Port GPIOA
-#define SWCLK_Pin GPIO_PIN_14
-#define SWCLK_GPIO_Port GPIOA
-#define VCP_RX_Pin GPIO_PIN_15
-#define VCP_RX_GPIO_Port GPIOA
-#define LD3_Pin GPIO_PIN_3
-#define LD3_GPIO_Port GPIOB
+#define DEBUG_UART_RX_Pin GPIO_PIN_15
+#define DEBUG_UART_RX_GPIO_Port GPIOA
+#define ADA_BOB_MCS_Pin GPIO_PIN_3
+#define ADA_BOB_MCS_GPIO_Port GPIOB
 #define TACH_INT_Pin GPIO_PIN_5
 #define TACH_INT_GPIO_Port GPIOB
 #define TACH_INT_EXTI_IRQn EXTI9_5_IRQn
