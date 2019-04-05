@@ -72,6 +72,8 @@ void Error_Handler(void);
 #define ADA_BOB_MISO_GPIO_Port GPIOA
 #define ADA_BOB_MOSI_Pin GPIO_PIN_7
 #define ADA_BOB_MOSI_GPIO_Port GPIOA
+#define LVL_SHIFTER_OE_HI_Pin GPIO_PIN_8
+#define LVL_SHIFTER_OE_HI_GPIO_Port GPIOA
 #define MOTOR_IN1_dir2PinL_Pin GPIO_PIN_9
 #define MOTOR_IN1_dir2PinL_GPIO_Port GPIOA
 #define MOTOR_IN2_dir1PinL_Pin GPIO_PIN_10

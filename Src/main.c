@@ -29,7 +29,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "LSM9DS1_Driver.h"
-//#include "motor_ctrl.h" 
+#include "motor_ctrl.h" 
+#include "car_ctrl.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -86,7 +87,7 @@ int main(void)
 
   /* Configure the system clock */
   SystemClock_Config();
-  
+
   /* USER CODE BEGIN SysInit */
 
   /* USER CODE END SysInit */
@@ -99,12 +100,19 @@ int main(void)
   /* USER CODE BEGIN 2 */
   usart_clear_screen(); 
   usart_print_ln("Seed Dispenser Car Starting...");
+  motor_ctrl_start(RIGHT_MOTORS); 
+  motor_ctrl_start(LEFT_MOTORS);
+  for(car_move_t dir = ADVANCE; dir < NUM_CAR_DIRS-1; dir++)
+  {
+    car_ctrl_move(dir); 
+    HAL_Delay(5000);
+  }
+  motor_ctrl_stop(RIGHT_MOTORS); 
+  motor_ctrl_stop(LEFT_MOTORS);
+  while(1); 
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
-  //motor_ctrl_start(LEFT_MOTORS); 
-  //motor_ctrl_start(RIGHT_MOTORS); 
-  //while(1); 
   MX_FREERTOS_Init();
 
   /* Start scheduler */
@@ -114,6 +122,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
   while (1)
   {
     /* USER CODE END WHILE */

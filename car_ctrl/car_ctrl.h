@@ -11,11 +11,12 @@ typedef enum
   REVERSE, 
   LEFT, 
   RIGHT,
+  BRAKE, 
   NUM_CAR_DIRS 
-} car_dir_t; 
+} car_move_t; 
 
 /* ----------------------------------------------- Public Function Prototypes */
 void car_ctrl_init(void); 
-void car_ctrl_direction(car_dir_t dir); 
+void car_ctrl_move(car_move_t move); 
 
 #endif /* __CAR_CTRL_H__ */

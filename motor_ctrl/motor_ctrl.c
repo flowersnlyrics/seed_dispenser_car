@@ -1,6 +1,6 @@
 /*******************************************************************************
-* @file           : main.c
-* @brief          : Main program body
+* @file           : motor_ctrl.c
+* @brief          : Controls PWM & rotating motors clockwise/counterclockwise
 *******************************************************************************/
 
 /* ----------------------------------------------------------------- Includes */
@@ -32,12 +32,12 @@ motor_grp_desc_t MOTOR_GRP_DESC[NUM_MOTOR_GROUPS] =
     MOTOR_CTRL_LEFT_PWM_Channel, 
     0, 
     {
-      MOTOR_IN2_dir1PinL_GPIO_Port,
-      MOTOR_IN2_dir1PinL_Pin 
+      MOTOR_IN4_dir1PinR_GPIO_Port,
+      MOTOR_IN4_dir1PinR_Pin 
     }, 
     {
-      MOTOR_IN1_dir2PinL_GPIO_Port,
-      MOTOR_IN1_dir2PinL_Pin 
+      MOTOR_IN3_dir2PinR_GPIO_Port,
+      MOTOR_IN3_dir2PinR_Pin 
     }, 
   }, 
   // RIGHT MOTORS //
@@ -45,12 +45,12 @@ motor_grp_desc_t MOTOR_GRP_DESC[NUM_MOTOR_GROUPS] =
     MOTOR_CTRL_RIGHT_PWM_Channel, 
     0,
     {
-      MOTOR_IN4_dir1PinR_GPIO_Port,
-      MOTOR_IN4_dir1PinR_Pin 
+      MOTOR_IN2_dir1PinL_GPIO_Port,
+      MOTOR_IN2_dir1PinL_Pin 
     }, 
     {
-      MOTOR_IN3_dir2PinR_GPIO_Port,
-      MOTOR_IN3_dir2PinR_Pin 
+      MOTOR_IN1_dir2PinL_GPIO_Port,
+      MOTOR_IN1_dir2PinL_Pin 
     }, 
   }
 }; 
@@ -81,19 +81,20 @@ void motor_ctrl_stop(motor_grp_t motor_grp)
   
   HAL_TIM_PWM_Stop_IT(&MOTOR_CTRL_PWM_Timer, 
                       MOTOR_GRP_DESC[motor_grp].tim_channel);
+  
 }
 
-void motor_ctrl_direction(motor_grp_t motor_grp, motor_dir_t dir)
+void motor_ctrl_rotation(motor_grp_t motor_grp, motor_rotation_t rotation)
 {
   GPIO_PinState in1_state; 
   GPIO_PinState in0_state; 
   
-  if(dir == CLOCKWISE)
+  if(rotation == CLOCKWISE)
   {
     in1_state = GPIO_PIN_SET; 
     in0_state = GPIO_PIN_RESET; 
   }
-  else if(dir == COUNTER_CLOCKWISE)
+  else if(rotation == COUNTER_CLOCKWISE)
   {
     in1_state = GPIO_PIN_RESET; 
     in0_state = GPIO_PIN_SET; 

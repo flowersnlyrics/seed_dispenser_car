@@ -9,9 +9,9 @@ typedef enum
 {
   CLOCKWISE, 
   COUNTER_CLOCKWISE, 
-  BREAK,
+  NO_ROTATION,
   NUM_MOTOR_DIRS
-} motor_dir_t; 
+} motor_rotation_t; 
 
 typedef enum 
 {
@@ -24,7 +24,7 @@ typedef enum
 void motor_init(void); 
 void motor_ctrl_start(motor_grp_t motor_grp); 
 void motor_ctrl_stop(motor_grp_t motor_grp); 
-void motor_ctrl_direction(motor_grp_t motor, motor_dir_t dir); 
-void motor_ctrl_speed(motor_grp_t motor, uint8_t speed); 
+void motor_ctrl_rotation(motor_grp_t motor_grp, motor_rotation_t rotation); 
+void motor_ctrl_speed(motor_grp_t motor_grp, uint8_t speed); 
 
 #endif /* __MOTOR_CTRL_H__ */
