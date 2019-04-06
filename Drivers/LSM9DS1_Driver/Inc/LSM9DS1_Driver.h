@@ -3,6 +3,7 @@
 
 #include "spi.h"
 #include "usart.h"
+#include "gpio.h" 
 
 extern SPI_HandleTypeDef hspi1;
 
@@ -152,7 +153,7 @@ typedef enum
 
 LSM9DS1_status_t LSM9DS1_driver_init(void);
 
-LSM9DS1_status_t LSM9DS1_driver_write(uint8_t address, uint8_t *data, uint8_t size); 
+//LSM9DS1_status_t LSM9DS1_driver_write(uint8_t address, uint8_t *data, uint8_t size); 
 
-LSM9DS1_status_t LSM9DS1_driver_read(uint8_t address, uint8_t *tx_buf, uint8_t *rx_buf, uint8_t num_bytes); 
+LSM9DS1_status_t LSM9DS1_Mag_driver_read(uint8_t address, uint8_t *rx_buf, uint8_t num_bytes); 
 #endif

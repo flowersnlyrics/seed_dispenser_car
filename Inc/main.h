@@ -64,8 +64,8 @@ void Error_Handler(void);
 #define DEBUG_UART_TX_GPIO_Port GPIOA
 #define MOTOR_CTRL_ENA_Pin GPIO_PIN_3
 #define MOTOR_CTRL_ENA_GPIO_Port GPIOA
-#define ADA_BOB_ACS_Pin GPIO_PIN_4
-#define ADA_BOB_ACS_GPIO_Port GPIOA
+#define ADA_BOB_AGCS_Pin GPIO_PIN_4
+#define ADA_BOB_AGCS_GPIO_Port GPIOA
 #define MOTOR_CTRL_ENB_Pin GPIO_PIN_5
 #define MOTOR_CTRL_ENB_GPIO_Port GPIOA
 #define ADA_BOB_MISO_Pin GPIO_PIN_6

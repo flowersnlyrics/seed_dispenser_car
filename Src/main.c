@@ -86,7 +86,7 @@ int main(void)
 
   /* Configure the system clock */
   SystemClock_Config();
-  
+
   /* USER CODE BEGIN SysInit */
 
   /* USER CODE END SysInit */
@@ -99,12 +99,16 @@ int main(void)
   /* USER CODE BEGIN 2 */
   usart_clear_screen(); 
   usart_print_ln("Seed Dispenser Car Starting...");
+
+  uint8_t rx_char; 
+
+  LSM9DS1_Mag_driver_read(0x0F,&rx_char,sizeof(rx_char)); 
+
+  usart_print("Received Character: "); usart_print_num_hex((uint16_t) rx_char); 
+  usart_print_ln(""); 
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
-  //motor_ctrl_start(LEFT_MOTORS); 
-  //motor_ctrl_start(RIGHT_MOTORS); 
-  //while(1); 
   MX_FREERTOS_Init();
 
   /* Start scheduler */
