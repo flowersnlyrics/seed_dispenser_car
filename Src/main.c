@@ -102,10 +102,17 @@ int main(void)
 
   uint8_t rx_char; 
 
-  LSM9DS1_Mag_driver_read(0x0F,&rx_char,sizeof(rx_char)); 
+//  LSM9DS1_Mag_driver_read(0x27,&rx_char,sizeof(rx_char)); 
+//
+//  usart_print("Received Character: "); usart_print_num_hex((uint16_t) rx_char); 
+//  usart_print_ln(""); 
 
-  usart_print("Received Character: "); usart_print_num_hex((uint16_t) rx_char); 
-  usart_print_ln(""); 
+    usart_print_ln("Testing SPI Stuff"); 
+    uint8_t pData[2] = {0x00,0x8F}; 
+    HAL_GPIO_WritePin(ADA_BOB_MCS_GPIO_Port,ADA_BOB_MCS_Pin,GPIO_PIN_RESET); //,GPIO_PIN_SET); /* Set CS LOW */
+    HAL_SPI_Transmit(&hspi1,pData,1,1000); 
+    HAL_GPIO_WritePin(ADA_BOB_MCS_GPIO_Port,ADA_BOB_MCS_Pin,GPIO_PIN_SET); //,GPIO_PIN_SET); /* Set CS LOW */
+    
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
