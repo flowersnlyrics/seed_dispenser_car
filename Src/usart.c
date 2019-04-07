@@ -154,7 +154,7 @@ void usart_print_num_hex(uint16_t number)
 		trackNum++;
 	}
 
-	usart_print_ln(tempArray);
+	usart_print(tempArray);
 }
 void usart_print_num_bin(uint16_t number)
 {
