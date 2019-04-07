@@ -100,24 +100,7 @@ int main(void)
   usart_clear_screen(); 
   usart_print_ln("Seed Dispenser Car Starting...");
 
-  uint8_t rx_char[51] = {0}; 
-
-//  LSM9DS1_driver_read(MAGTYPE,0x8F,rx_char,sizeof(rx_char)); 
-  LSM9DS1_driver_read(MAGTYPE,0x00,rx_char,sizeof(rx_char)); 
-
-  usart_print_ln("Printing Registers..."); 
-  for ( uint16_t i = 0; i < sizeof(rx_char); i++ ) 
-  {
-    usart_print("Address:"); usart_print_num_hex(i); usart_print("      Value:"); 
-    usart_print_num_hex((uint16_t) rx_char[i]); 
-    usart_print_ln(""); 
-  }/* ----------  end of for int i = 0; i < sizeof(rx_char); i++  ---------- */
-
-//    usart_print_ln("Testing SPI Stuff"); 
-//    uint8_t pData[2] = {0x00,0x8F}; 
-//    HAL_GPIO_WritePin(ADA_BOB_MCS_GPIO_Port,ADA_BOB_MCS_Pin,GPIO_PIN_RESET); //,GPIO_PIN_SET); /* Set CS LOW */
-//    HAL_SPI_Transmit(&hspi1,pData,1,1000); 
-//    HAL_GPIO_WritePin(ADA_BOB_MCS_GPIO_Port,ADA_BOB_MCS_Pin,GPIO_PIN_SET); //,GPIO_PIN_SET); /* Set CS LOW */
+  LSM9DS1_driver_print_all_registers(MAGTYPE); 
     
   /* USER CODE END 2 */
 

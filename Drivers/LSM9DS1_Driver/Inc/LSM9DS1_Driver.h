@@ -40,7 +40,9 @@ extern SPI_HandleTypeDef hspi1;
 #define LSM9DS1_TEMP_LSB_DEGREE_CELSIUS    (8)  // 1°C = 8, 25° = 200, etc.
 
 #define MAGTYPE                           (true)
+#define MAG_MAX_REG_NUM                         0x0033
 #define XGTYPE                            (false)
+#define XG_MAX_REG_NUM                          0x007F
 
 typedef enum
 {
@@ -151,17 +153,26 @@ typedef enum
     LSM9DS1_INIT_ERR, 
 } LSM9DS1_status_t; 
 
-
+/*! 
+ * Initialize the magnetometer and accelerometer/gyroscope sensors
+ */
 LSM9DS1_status_t LSM9DS1_driver_init(void);
 
 //LSM9DS1_status_t LSM9DS1_driver_write(uint8_t address, uint8_t *data, uint8_t size); 
 
 /*!
- * Send a bulk SPI transfer to the desired address within the FPGA.
- * @param mag_or_ag Set to MAGTYPE or a magnetometer read operation, or XGTYPE or accel-gyroscope read operation
+ * Read a specified register value or range of registers
+ * @param mag_or_ag Set to MAGTYPE for a magnetometer read operation, or XGTYPE for accel-gyroscope read operation
  * @param address Starting Address to read registers from
  * @param rx_buf Pointer to a buffer to place received payload
  * @param num_bytes Number of registers to read
  */
 LSM9DS1_status_t LSM9DS1_driver_read(bool mag_or_ag, uint8_t address, uint8_t *rx_buf, uint8_t num_bytes); 
+
+/*! 
+ * Print out the current register values to the uart
+ * @param mag_or_ag Set to MAGTYPE for magnetometer. or XGTYPE for accel-gyroscope 
+ */
+LSM9DS1_status_t LSM9DS1_driver_print_all_registers ( bool mag_or_ag ); 
+
 #endif
