@@ -102,7 +102,7 @@ int main(void)
 
   uint8_t rx_char; 
 
-  LSM9DS1_Mag_driver_read(0x8F,&rx_char,sizeof(rx_char)); 
+  LSM9DS1_driver_read(MAGTYPE,0x8F,&rx_char,sizeof(rx_char)); 
 
   usart_print("Received Character: "); usart_print_num_hex((uint16_t) rx_char); 
   usart_print_ln(""); 

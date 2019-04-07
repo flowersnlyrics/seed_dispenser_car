@@ -4,6 +4,7 @@
 #include "spi.h"
 #include "usart.h"
 #include "gpio.h" 
+#include <stdbool.h>
 
 extern SPI_HandleTypeDef hspi1;
 
@@ -155,5 +156,12 @@ LSM9DS1_status_t LSM9DS1_driver_init(void);
 
 //LSM9DS1_status_t LSM9DS1_driver_write(uint8_t address, uint8_t *data, uint8_t size); 
 
-LSM9DS1_status_t LSM9DS1_Mag_driver_read(uint8_t address, uint8_t *rx_buf, uint8_t num_bytes); 
+/*!
+ * Send a bulk SPI transfer to the desired address within the FPGA.
+ * @param mag_or_ag Set to MAGTYPE or a magnetometer read operation, or XGTYPE or accel-gyroscope read operation
+ * @param address Starting Address to read registers from
+ * @param rx_buf Pointer to a buffer to place received payload
+ * @param num_bytes Number of registers to read
+ */
+LSM9DS1_status_t LSM9DS1_driver_read(bool mag_or_ag, uint8_t address, uint8_t *rx_buf, uint8_t num_bytes); 
 #endif
