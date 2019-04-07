@@ -12,6 +12,13 @@ extern SPI_HandleTypeDef hspi1;
 #define LSM9DS1_READ_MODE                  (0x01 << 7)
 #define LSM9DS1_WRITE_MODE                 (0x00 << 7)
 #define SPI_TIMEOUT                        1000
+#define MAGTYPE                            (true)
+#define MAG_MAX_REG_NUM                    0x0033
+#define XGTYPE                             (false)
+#define XG_MAX_REG_NUM                     0x007F
+#define LSM9DS1_READ                       (true)
+#define LSM9DS1_WRITE                      (false)
+
 
 //Addresses
 #define LSM9DS1_ADDRESS_ACCELGYRO          (0x6B)
@@ -39,10 +46,6 @@ extern SPI_HandleTypeDef hspi1;
 // Temperature: LSB per degree celsius
 #define LSM9DS1_TEMP_LSB_DEGREE_CELSIUS    (8)  // 1°C = 8, 25° = 200, etc.
 
-#define MAGTYPE                           (true)
-#define MAG_MAX_REG_NUM                         0x0033
-#define XGTYPE                            (false)
-#define XG_MAX_REG_NUM                          0x007F
 
 typedef enum
 {
@@ -158,16 +161,15 @@ typedef enum
  */
 LSM9DS1_status_t LSM9DS1_driver_init(void);
 
-//LSM9DS1_status_t LSM9DS1_driver_write(uint8_t address, uint8_t *data, uint8_t size); 
-
 /*!
  * Read a specified register value or range of registers
+ * @param read_or_write Set to LSM9DS1_READ to read operation, set to LSM9DS1_WRITE for write operation
  * @param mag_or_ag Set to MAGTYPE for a magnetometer read operation, or XGTYPE for accel-gyroscope read operation
  * @param address Starting Address to read registers from
- * @param rx_buf Pointer to a buffer to place received payload
+ * @param buf Pointer to a buffer to place received payload
  * @param num_bytes Number of registers to read
  */
-LSM9DS1_status_t LSM9DS1_driver_read(bool mag_or_ag, uint8_t address, uint8_t *rx_buf, uint8_t num_bytes); 
+LSM9DS1_status_t LSM9DS1_driver_register_operation(bool read_or_write, bool mag_or_ag, uint8_t address, uint8_t *buf, uint8_t num_bytes); 
 
 /*! 
  * Print out the current register values to the uart

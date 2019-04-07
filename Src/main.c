@@ -101,6 +101,14 @@ int main(void)
   usart_print_ln("Seed Dispenser Car Starting...");
 
   LSM9DS1_driver_print_all_registers(MAGTYPE); 
+
+  uint8_t rx_buf = 0; 
+  while ( 1 ) 
+  {
+      LSM9DS1_driver_register_operation(LSM9DS1_READ,XGTYPE,0x0F,&rx_buf,1); 
+      usart_print("Value"); usart_print_num_hex((uint16_t)rx_buf);usart_print_ln(""); 
+        HAL_Delay(100); 
+  }/* ----------  end of while 1  ---------- */
     
   /* USER CODE END 2 */
 
