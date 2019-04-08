@@ -103,6 +103,7 @@ void Error_Handler(void);
 #define TACH_INT_GPIO_Port GPIOB
 #define TACH_INT_EXTI_IRQn EXTI9_5_IRQn
 <<<<<<< HEAD
+<<<<<<< HEAD
 #define WINDMILL_MOTOR_IN2_Pin GPIO_PIN_7
 #define WINDMILL_MOTOR_IN2_GPIO_Port GPIOB
 #define WINDMILL_MOTOR_IN1_Pin GPIO_PIN_3
@@ -110,6 +111,10 @@ void Error_Handler(void);
 =======
 #define MILL_MOTOR_IN1_Pin GPIO_PIN_3
 #define MILL_MOTOR_IN1_GPIO_Port GPIOH
+>>>>>>> my_car
+=======
+#define MILL_MOTOR_IN1_Pin GPIO_PIN_7
+#define MILL_MOTOR_IN1_GPIO_Port GPIOB
 >>>>>>> my_car
 /* USER CODE BEGIN Private defines */
 
