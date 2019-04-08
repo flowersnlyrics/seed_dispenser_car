@@ -5,9 +5,10 @@ Spring 2019 @ Boston University  <br/>
 # Getting Started
 ## Hardware Needed
 + OSOYOO Robot Smart Car [Kit](https://www.amazon.com/dp/B074Z6DMYP/ref=cm_sw_em_r_mt_dp_U_9QwMCbNGRHGH2) 
+  * Only need a few components 
     - car chassi, four motors, four wheels 
-    - [OSOYOO] (https://www.amazon.com/dp/B07FFT4CL4/ref=cm_sw_em_r_mt_dp_U_I21QCbEYR8BK4) Model-X motor control board 
-    - Remove the Arduino UNO (not a powerful enough MCU) 
+    - [OSOYOO](https://www.amazon.com/dp/B07FFT4CL4/ref=cm_sw_em_r_mt_dp_U_I21QCbEYR8BK4) Model-X motor control board 
+  * Remove the Arduino UNO (not a powerful enough MCU) 
 + Two 18650, 3.7V, 3000mAh rechargeble batteries w/ charger (any brand) 
 + Adafruit [LSM9DS1](https://learn.adafruit.com/adafruit-lsm9ds1-accelerometer-+plus-gyro-plus-magnetometer-9-dof-breakout/overview) Accelerometer + Gyro + Magnetometer Breakout Board
 + OSOYOO [IR Obstacle Detector](https://www.amazon.com/OSOYOO-Infrared-Obstacle-Avoidance-Arduino/dp/B01I57HIJ0) - This will be used as a tachometer
