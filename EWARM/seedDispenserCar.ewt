@@ -1170,42 +1170,12 @@
       </file>
     </group>
     <group>
-      <name>motor_ctrl</name>
+      <name>wheel_ctrl</name>
       <file>
-        <name>$PROJ_DIR$\..\motor_ctrl\motor_ctrl.c</name>
+        <name>$PROJ_DIR$\..\wheel_ctrl\wheel_ctrl.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\motor_ctrl\motor_ctrl.h</name>
-      </file>
-    </group>
-    <group>
-      <name>User</name>
-      <file>
-        <name>$PROJ_DIR$\..\Src\freertos.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\Src\gpio.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\Src\main.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\Src\spi.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\Src\stm32l4xx_hal_msp.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\Src\stm32l4xx_hal_timebase_tim.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\Src\stm32l4xx_it.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\Src\tim.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\Src\usart.c</name>
+        <name>$PROJ_DIR$\..\wheel_ctrl\wheel_ctrl.h</name>
       </file>
     </group>
   </group>
@@ -1340,6 +1310,36 @@
         <name>$PROJ_DIR$\..\Middlewares\Third_Party\FreeRTOS\Source\timers.c</name>
       </file>
     </group>
+  </group>
+  <group>
+    <name>User</name>
+    <file>
+      <name>$PROJ_DIR$\..\Src\freertos.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\gpio.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\main.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\spi.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\stm32l4xx_hal_msp.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\stm32l4xx_hal_timebase_tim.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\stm32l4xx_it.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\tim.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\usart.c</name>
+    </file>
   </group>
 </project>
 

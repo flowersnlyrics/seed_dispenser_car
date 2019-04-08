@@ -17,8 +17,8 @@ void car_ctrl_init(void)
   // Make sure car doesn't move at start up 
   car_ctrl_move(BRAKE); 
   // Set the speed to 0 :) 
-  motor_ctrl_speed(LEFT_MOTORS, BRAKE_CAR_SPEED); 
-  motor_ctrl_speed(RIGHT_MOTORS, BRAKE_CAR_SPEED); 
+  wheel_ctrl_speed(LEFT_WHEELS, BRAKE_CAR_SPEED); 
+  wheel_ctrl_speed(RIGHT_WHEELS, BRAKE_CAR_SPEED); 
   
 }
 
@@ -28,24 +28,24 @@ void car_ctrl_move(car_move_t move)
   switch(move)
   {
     case ADVANCE: 
-      motor_ctrl_rotation(LEFT_MOTORS, CLOCKWISE); 
-      motor_ctrl_rotation(RIGHT_MOTORS, CLOCKWISE);
+      wheel_ctrl_rotation(LEFT_WHEELS, CLOCKWISE); 
+      wheel_ctrl_rotation(RIGHT_WHEELS, CLOCKWISE);
       break; 
     case REVERSE:
-      motor_ctrl_rotation(LEFT_MOTORS, COUNTER_CLOCKWISE); 
-      motor_ctrl_rotation(RIGHT_MOTORS, COUNTER_CLOCKWISE);
+      wheel_ctrl_rotation(LEFT_WHEELS, COUNTER_CLOCKWISE); 
+      wheel_ctrl_rotation(RIGHT_WHEELS, COUNTER_CLOCKWISE);
       break; 
     case LEFT:
-      motor_ctrl_rotation(LEFT_MOTORS, CLOCKWISE); 
-      motor_ctrl_rotation(RIGHT_MOTORS, COUNTER_CLOCKWISE);
+      wheel_ctrl_rotation(LEFT_WHEELS, CLOCKWISE); 
+      wheel_ctrl_rotation(RIGHT_WHEELS, COUNTER_CLOCKWISE);
       break; 
     case RIGHT:
-      motor_ctrl_rotation(LEFT_MOTORS, COUNTER_CLOCKWISE); 
-      motor_ctrl_rotation(RIGHT_MOTORS, CLOCKWISE);
+      wheel_ctrl_rotation(LEFT_WHEELS, COUNTER_CLOCKWISE); 
+      wheel_ctrl_rotation(RIGHT_WHEELS, CLOCKWISE);
       break; 
     case BRAKE:
-      motor_ctrl_rotation(LEFT_MOTORS, NO_ROTATION); 
-      motor_ctrl_rotation(RIGHT_MOTORS, NO_ROTATION);
+      wheel_ctrl_rotation(LEFT_WHEELS, NO_ROTATION); 
+      wheel_ctrl_rotation(RIGHT_WHEELS, NO_ROTATION);
       break; 
   }
 }

@@ -108,7 +108,7 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef* timHandle)
     PA3     ------> TIM2_CH4
     PA5     ------> TIM2_CH1 
     */
-    GPIO_InitStruct.Pin = MOTOR_CTRL_ENA_Pin|MOTOR_CTRL_ENB_Pin;
+    GPIO_InitStruct.Pin = WHEEL_MOTOR_ENA_Pin|WHEEL_MOTOR_ENB_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
