@@ -2,7 +2,11 @@
 #define __CAR_CTRL_H__
 
 /* ----------------------------------------------------------------- Includes */
+<<<<<<< HEAD
 #include "motor_c_ctrl.h"
+=======
+#include "wheel_ctrl.h"
+>>>>>>> my_car
 
 /* ------------------------------------------------------- Public Definitions */
 typedef enum

@@ -1170,6 +1170,7 @@
       </file>
     </group>
     <group>
+<<<<<<< HEAD
       <name>motors</name>
       <group>
         <name>motor_c_ctrl</name>
@@ -1197,6 +1198,14 @@
       </file>
       <file>
         <name>$PROJ_DIR$\..\windmill_ctrl\windmill_ctrl.h</name>
+=======
+      <name>wheel_ctrl</name>
+      <file>
+        <name>$PROJ_DIR$\..\wheel_ctrl\wheel_ctrl.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\wheel_ctrl\wheel_ctrl.h</name>
+>>>>>>> my_car
       </file>
     </group>
   </group>

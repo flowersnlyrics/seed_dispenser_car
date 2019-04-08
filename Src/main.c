@@ -29,7 +29,11 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "LSM9DS1_Driver.h"
+<<<<<<< HEAD
 #include "motor_c_ctrl.h" 
+=======
+#include "wheel_ctrl.h" 
+>>>>>>> my_car
 #include "car_ctrl.h"
 /* USER CODE END Includes */
 
@@ -100,15 +104,25 @@ int main(void)
   /* USER CODE BEGIN 2 */
   usart_clear_screen(); 
   usart_print_ln("Seed Dispenser Car Starting...");
+<<<<<<< HEAD
   motor_c_ctrl_start(RIGHT_MOTORS); 
   motor_c_ctrl_start(LEFT_MOTORS);
+=======
+  wheel_ctrl_start(RIGHT_WHEELS); 
+  wheel_ctrl_start(LEFT_WHEELS);
+>>>>>>> my_car
   for(car_move_t dir = ADVANCE; dir < NUM_CAR_DIRS-1; dir++)
   {
     car_ctrl_move(dir); 
     HAL_Delay(5000);
   }
+<<<<<<< HEAD
   motor_c_ctrl_stop(RIGHT_MOTORS); 
   motor_c_ctrl_stop(LEFT_MOTORS);
+=======
+  wheel_ctrl_stop(RIGHT_WHEELS); 
+  wheel_ctrl_stop(LEFT_WHEELS);
+>>>>>>> my_car
   while(1); 
   /* USER CODE END 2 */
 

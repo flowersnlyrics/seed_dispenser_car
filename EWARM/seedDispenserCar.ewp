@@ -317,9 +317,13 @@
           <name>CCIncludePath2</name>
           <state>$PROJ_DIR$/../Inc</state>
           <state>$PROJ_DIR$/../car_ctrl</state>
+<<<<<<< HEAD
           <state>$PROJ_DIR$/../windmill_ctrl</state>
           <state>$PROJ_DIR$/../motor/motor_c_ctrl</state>
           <state>$PROJ_DIR$/../motor/motor_w_ctrl</state>
+=======
+          <state>$PROJ_DIR$/../wheel_ctrl</state>
+>>>>>>> my_car
           <state>$PROJ_DIR$/../Drivers/STM32L4xx_HAL_Driver/Inc</state>
           <state>$PROJ_DIR$/../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy</state>
           <state>$PROJ_DIR$/../Middlewares/Third_Party/FreeRTOS/Source/include</state>
@@ -987,6 +991,7 @@
       </file>
     </group>
     <group>
+<<<<<<< HEAD
       <name>motors</name>
       <group>
         <name>motor_c_ctrl</name>
@@ -1014,6 +1019,14 @@
       </file>
       <file>
         <name>$PROJ_DIR$\..\windmill_ctrl\windmill_ctrl.h</name>
+=======
+      <name>wheel_ctrl</name>
+      <file>
+        <name>$PROJ_DIR$\..\wheel_ctrl\wheel_ctrl.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\wheel_ctrl\wheel_ctrl.h</name>
+>>>>>>> my_car
       </file>
     </group>
   </group>
