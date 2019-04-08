@@ -31,6 +31,7 @@
 #include "LSM9DS1_Driver.h"
 #include "wheel_ctrl.h" 
 #include "car_ctrl.h"
+#include "blade_ctrl.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -98,7 +99,7 @@ int main(void)
   MX_TIM2_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  usart_clear_screen(); 
+  /*usart_clear_screen(); 
   usart_print_ln("Seed Dispenser Car Starting...");
   wheel_ctrl_start(RIGHT_WHEELS); 
   wheel_ctrl_start(LEFT_WHEELS);
@@ -108,7 +109,8 @@ int main(void)
     HAL_Delay(5000);
   }
   wheel_ctrl_stop(RIGHT_WHEELS); 
-  wheel_ctrl_stop(LEFT_WHEELS);
+  wheel_ctrl_stop(LEFT_WHEELS);*/
+  loop(); 
   while(1); 
   /* USER CODE END 2 */
 

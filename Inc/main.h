@@ -95,8 +95,8 @@ void Error_Handler(void);
 #define TACH_INT_Pin GPIO_PIN_5
 #define TACH_INT_GPIO_Port GPIOB
 #define TACH_INT_EXTI_IRQn EXTI9_5_IRQn
-#define MILL_MOTOR_IN1_Pin GPIO_PIN_3
-#define MILL_MOTOR_IN1_GPIO_Port GPIOH
+#define MILL_MOTOR_IN1_Pin GPIO_PIN_7
+#define MILL_MOTOR_IN1_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

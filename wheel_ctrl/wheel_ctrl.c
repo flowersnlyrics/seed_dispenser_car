@@ -1,5 +1,5 @@
 /*******************************************************************************
-* @file           : motor_ctrl.c
+* @file           : wheel_ctrl.c
 * @brief          : Controls PWM & rotating motors clockwise/counterclockwise
 *******************************************************************************/
 
