@@ -5,20 +5,19 @@ Spring 2019 @ Boston University  <br/>
 # Getting Started
 ## Hardware Needed
 + OSOYOO Robot Smart Car [Kit](https://www.amazon.com/dp/B074Z6DMYP/ref=cm_sw_em_r_mt_dp_U_9QwMCbNGRHGH2) 
-+ Two 18650, 3.6V, 3000mAh rechargeble batteries w/ charger
+  - All we need here are a few components
+    - car chassi, four motors, four wheels 
+    - OSOYOO motor control board 
+  - Remove the Arduino UNO (not a powerful enough MCU) 
++ Two 18650, 3.7V, 3000mAh rechargeble batteries w/ charger (any brand) 
 + Adafruit LSM9DS1 Accelerometer + Gyro + Magnetometer [Breakout Board](https://learn.adafruit.com/adafruit-lsm9ds1-accelerometer-+plus-gyro-plus-magnetometer-9-dof-breakout/overview)
-+ Custom [Tachometer](https://easyeda.com/sharmaz747/Arduino_techometer-1682044268dc49a4b0106a43e2b0ba62) Protoboard 
-   - ONe LM358 Op amps TODO link
-   - IR receiver and photodiode pair TODO link
-   - Two 10 kΩ resistors 
-   - One 100 Ω resistor 
-   - One 68 kΩ resistor
-   - Optional: One LED for debugging 
-   - Optional: One breadboard for debugging
++ OSOYOO [IR Obstacle Detector](https://www.amazon.com/OSOYOO-Infrared-Obstacle-Avoidance-Arduino/dp/B01I57HIJ0) - This will be used as a tachometer
++ [28BYJ-48](https://components101.com/motors/28byj-48-stepper-motor) - 5V Stepper Motor with the [ULN2003](https://www.electronicoscaldas.com/datasheet/ULN2003A-PCB.pdf) driver board (high current!)
++ [NUCLEO-L432KC](https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-mpu-eval-tools/stm32-mcu-mpu-eval-tools/stm32-nucleo-boards/nucleo-l432kc.html) Evaluation Board
++ [TXSO108E](https://www.addicore.com/TXS0108E-p/ad284.htm) 8-channel bidirectional level-shifters
 
 ## Software Needed 
 IAR Embedded Workbench
+STM32CubeMX 5.1.0 (or else you can't open this .ioc file)
+PuTTY, TeraTerm or similar terminal program 
 
-# Documentation 
-## Tachometer Circuit Diagram 
-TODO place circuit diagram here 
