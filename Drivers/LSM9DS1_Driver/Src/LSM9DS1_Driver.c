@@ -71,10 +71,12 @@ LSM9DS1_status_t LSM9DS1_driver_register_operation(bool read_or_write, bool mag_
                     if ( read_or_write == LSM9DS1_READ ) 
                     {
                         HAL_SPI_Receive(&hspi1,buf,num_bytes,SPI_TIMEOUT);
+                        while(HAL_SPI_GetState(&hspi1) != HAL_SPI_STATE_READY);
                     }
                     else 
                     {
                         HAL_SPI_Transmit(&hspi1,buf,num_bytes,SPI_TIMEOUT); 
+                        while(HAL_SPI_GetState(&hspi1) != HAL_SPI_STATE_READY);
                     }/* ----------  end of if-else read_or_write == LSM9DS1_READ  ---------- */
                     HAL_GPIO_WritePin(cs_port,cs_pin,GPIO_PIN_SET); /* Set CS HIGH */
                 }/* ----------  end of if-else a = 0  ---------- */

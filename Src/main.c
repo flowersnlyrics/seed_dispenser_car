@@ -100,16 +100,31 @@ int main(void)
   usart_clear_screen(); 
   usart_print_ln("Seed Dispenser Car Starting...");
 
-  LSM9DS1_driver_print_all_registers(MAGTYPE); 
-
-  uint8_t rx_buf = 0; 
+//  //while(1){
+//  LSM9DS1_driver_print_all_registers(MAGTYPE); 
+//  //}
+//  uint8_t rx_buf = 0; 
+//  while ( 1 ) 
+//  {
+//      LSM9DS1_driver_register_operation(LSM9DS1_READ,XGTYPE,0x0F,&rx_buf,1); 
+//      usart_print("Value"); usart_print_num_hex((uint16_t)rx_buf);usart_print_ln(""); 
+//      HAL_Delay(100); 
+//  }/* ----------  end of while 1  ---------- */
+    
   while ( 1 ) 
   {
-      LSM9DS1_driver_register_operation(LSM9DS1_READ,XGTYPE,0x0F,&rx_buf,1); 
-      usart_print("Value"); usart_print_num_hex((uint16_t)rx_buf);usart_print_ln(""); 
-        HAL_Delay(100); 
+      uint8_t buf; 
+      uint8_t mode_address_byte = 0x00; 
+      GPIO_TypeDef *cs_port = NULL; 
+      uint16_t cs_pin = 0x0000; 
+      mode_address_byte = (0x8 << 4) | (0xf);  
+      cs_port = ADA_BOB_AGCS_GPIO_Port; 
+      cs_pin = ADA_BOB_AGCS_Pin; 
+      HAL_GPIO_WritePin(cs_port,cs_pin,GPIO_PIN_RESET); /* Set CS LOW */
+      HAL_SPI_Transmit(&hspi1,&mode_address_byte,1,SPI_TIMEOUT); /* Need to transmit the address telling it to read */
+      HAL_SPI_Receive(&hspi1,&buf,1,SPI_TIMEOUT);
+      HAL_GPIO_WritePin(cs_port,cs_pin,GPIO_PIN_SET); /* Set CS HIGH */
   }/* ----------  end of while 1  ---------- */
-    
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
