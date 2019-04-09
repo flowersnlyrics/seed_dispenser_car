@@ -55,30 +55,16 @@ void MX_GPIO_Init(void)
                           |WHEEL_MOTOR_IN4_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-<<<<<<< HEAD
-<<<<<<< HEAD
-  HAL_GPIO_WritePin(GPIOB, WINDMILL_MOTOR_IN3_Pin|WINDMILL_MOTOR_IN4_Pin|ADA_BOB_MCS_Pin|WINDMILL_MOTOR_IN2_Pin, GPIO_PIN_RESET);
-=======
   HAL_GPIO_WritePin(GPIOB, MILL_MOTOR_IN3_Pin|MILL_MOTOR_IN4_Pin|ADA_BOB_MCS_Pin|MILL_MOTOR_IN2_Pin, GPIO_PIN_RESET);
->>>>>>> my_car
-=======
   HAL_GPIO_WritePin(GPIOB, MILL_MOTOR_IN3_Pin|MILL_MOTOR_IN4_Pin|ADA_BOB_MCS_Pin|MILL_MOTOR_IN2_Pin 
                           |MILL_MOTOR_IN1_Pin, GPIO_PIN_RESET);
->>>>>>> my_car
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LVL_SHIFTER_OE_HI_GPIO_Port, LVL_SHIFTER_OE_HI_Pin, GPIO_PIN_SET);
 
-<<<<<<< HEAD
   /*Configure GPIO pin Output Level */
-<<<<<<< HEAD
-  HAL_GPIO_WritePin(WINDMILL_MOTOR_IN1_GPIO_Port, WINDMILL_MOTOR_IN1_Pin, GPIO_PIN_RESET);
-=======
   HAL_GPIO_WritePin(MILL_MOTOR_IN1_GPIO_Port, MILL_MOTOR_IN1_Pin, GPIO_PIN_RESET);
->>>>>>> my_car
 
-=======
->>>>>>> my_car
   /*Configure GPIO pins : PAPin PAPin PAPin PAPin 
                            PAPin */
   GPIO_InitStruct.Pin = ADA_BOB_ACS_Pin|WHEEL_MOTOR_IN1_Pin|WHEEL_MOTOR_IN2_Pin|WHEEL_MOTOR_IN3_Pin 
@@ -88,24 +74,15 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-  /*Configure GPIO pins : PBPin PBPin PBPin */
-  GPIO_InitStruct.Pin = WINDMILL_MOTOR_IN3_Pin|WINDMILL_MOTOR_IN4_Pin|WINDMILL_MOTOR_IN2_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
-=======
   /*Configure GPIO pins : PBPin PBPin PBPin PBPin */
   GPIO_InitStruct.Pin = MILL_MOTOR_IN3_Pin|MILL_MOTOR_IN4_Pin|ADA_BOB_MCS_Pin|MILL_MOTOR_IN2_Pin;
-=======
+
   /*Configure GPIO pins : PBPin PBPin PBPin PBPin 
                            PBPin */
   GPIO_InitStruct.Pin = MILL_MOTOR_IN3_Pin|MILL_MOTOR_IN4_Pin|ADA_BOB_MCS_Pin|MILL_MOTOR_IN2_Pin 
                           |MILL_MOTOR_IN1_Pin;
->>>>>>> my_car
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
->>>>>>> my_car
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
@@ -117,42 +94,16 @@ void MX_GPIO_Init(void)
   HAL_GPIO_Init(LVL_SHIFTER_OE_HI_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PtPin */
-<<<<<<< HEAD
-  GPIO_InitStruct.Pin = ADA_BOB_MCS_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(ADA_BOB_MCS_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : PB4 PB6 */
-  GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_6;
-  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : PtPin */
-=======
->>>>>>> my_car
   GPIO_InitStruct.Pin = TACH_INT_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(TACH_INT_GPIO_Port, &GPIO_InitStruct);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-  /*Configure GPIO pin : PtPin */
-  GPIO_InitStruct.Pin = WINDMILL_MOTOR_IN1_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(WINDMILL_MOTOR_IN1_GPIO_Port, &GPIO_InitStruct);
-=======
   /*Configure GPIO pins : PB6 PB7 */
   GPIO_InitStruct.Pin = GPIO_PIN_6|GPIO_PIN_7;
-=======
+
   /*Configure GPIO pin : PB6 */
   GPIO_InitStruct.Pin = GPIO_PIN_6;
->>>>>>> my_car
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
@@ -161,13 +112,8 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pin = GPIO_PIN_3;
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-<<<<<<< HEAD
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(MILL_MOTOR_IN1_GPIO_Port, &GPIO_InitStruct);
->>>>>>> my_car
-=======
   HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
->>>>>>> my_car
+
 
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI9_5_IRQn, 6, 0);

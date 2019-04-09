@@ -72,17 +72,10 @@ void Error_Handler(void);
 #define ADA_BOB_MISO_GPIO_Port GPIOA
 #define ADA_BOB_MOSI_Pin GPIO_PIN_7
 #define ADA_BOB_MOSI_GPIO_Port GPIOA
-<<<<<<< HEAD
-#define WINDMILL_MOTOR_IN3_Pin GPIO_PIN_0
-#define WINDMILL_MOTOR_IN3_GPIO_Port GPIOB
-#define WINDMILL_MOTOR_IN4_Pin GPIO_PIN_1
-#define WINDMILL_MOTOR_IN4_GPIO_Port GPIOB
-=======
 #define MILL_MOTOR_IN3_Pin GPIO_PIN_0
 #define MILL_MOTOR_IN3_GPIO_Port GPIOB
 #define MILL_MOTOR_IN4_Pin GPIO_PIN_1
 #define MILL_MOTOR_IN4_GPIO_Port GPIOB
->>>>>>> my_car
 #define LVL_SHIFTER_OE_HI_Pin GPIO_PIN_8
 #define LVL_SHIFTER_OE_HI_GPIO_Port GPIOA
 #define WHEEL_MOTOR_IN1_Pin GPIO_PIN_9
@@ -102,20 +95,9 @@ void Error_Handler(void);
 #define TACH_INT_Pin GPIO_PIN_5
 #define TACH_INT_GPIO_Port GPIOB
 #define TACH_INT_EXTI_IRQn EXTI9_5_IRQn
-<<<<<<< HEAD
-<<<<<<< HEAD
-#define WINDMILL_MOTOR_IN2_Pin GPIO_PIN_7
-#define WINDMILL_MOTOR_IN2_GPIO_Port GPIOB
-#define WINDMILL_MOTOR_IN1_Pin GPIO_PIN_3
-#define WINDMILL_MOTOR_IN1_GPIO_Port GPIOH
-=======
 #define MILL_MOTOR_IN1_Pin GPIO_PIN_3
 #define MILL_MOTOR_IN1_GPIO_Port GPIOH
->>>>>>> my_car
-=======
-#define MILL_MOTOR_IN1_Pin GPIO_PIN_7
-#define MILL_MOTOR_IN1_GPIO_Port GPIOB
->>>>>>> my_car
+
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
