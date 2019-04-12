@@ -1188,14 +1188,8 @@
         <file>
           <name>$PROJ_DIR$\..\if_adapters\accel_if\accel_if.h</name>
         </file>
-      </group>
-      <group>
-        <name>gyro_if</name>
         <file>
-          <name>$PROJ_DIR$\..\if_adapters\gyro_if\gyro_if.c</name>
-        </file>
-        <file>
-          <name>$PROJ_DIR$\..\if_adapters\gyro_if\gyro_if.h</name>
+          <name>$PROJ_DIR$\..\if_adapters\accel_if\accel_regs.h</name>
         </file>
       </group>
       <group>
@@ -1205,6 +1199,9 @@
         </file>
         <file>
           <name>$PROJ_DIR$\..\if_adapters\mag_if\mag_if.h</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\if_adapters\mag_if\mag_regs.h</name>
         </file>
       </group>
     </group>

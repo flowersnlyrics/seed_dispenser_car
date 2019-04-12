@@ -124,10 +124,7 @@ int main(void)
     while(hi2c1.State != HAL_I2C_STATE_READY); 
     
     // ACCELEROMETER READ ME WORKS BUTCHES //
-    HAL_I2C_Master_Transmit_IT(&hi2c1, 0xD6, &reg, 1);
-    while(hi2c1.State != HAL_I2C_STATE_READY); 
-    HAL_I2C_Master_Receive_IT(&hi2c1, 0xD7, &WHO_IS_XG,1 );
-    while(hi2c1.State != HAL_I2C_STATE_READY); 
+    accel_if_read_reg(WHO_AM_I_XG, &WHO_IS_XG); 
   }
   /* USER CODE END 2 */
 
