@@ -58,20 +58,14 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define ADA_BOB_SCK_Pin GPIO_PIN_1
-#define ADA_BOB_SCK_GPIO_Port GPIOA
 #define DEBUG_UART_TX_Pin GPIO_PIN_2
 #define DEBUG_UART_TX_GPIO_Port GPIOA
 #define WHEEL_MOTOR_ENA_Pin GPIO_PIN_3
 #define WHEEL_MOTOR_ENA_GPIO_Port GPIOA
-#define ADA_BOB_ACS_Pin GPIO_PIN_4
-#define ADA_BOB_ACS_GPIO_Port GPIOA
+#define MILL_MOTOR_IN1_Pin GPIO_PIN_4
+#define MILL_MOTOR_IN1_GPIO_Port GPIOA
 #define WHEEL_MOTOR_ENB_Pin GPIO_PIN_5
 #define WHEEL_MOTOR_ENB_GPIO_Port GPIOA
-#define ADA_BOB_MISO_Pin GPIO_PIN_6
-#define ADA_BOB_MISO_GPIO_Port GPIOA
-#define ADA_BOB_MOSI_Pin GPIO_PIN_7
-#define ADA_BOB_MOSI_GPIO_Port GPIOA
 #define MILL_MOTOR_IN3_Pin GPIO_PIN_0
 #define MILL_MOTOR_IN3_GPIO_Port GPIOB
 #define MILL_MOTOR_IN4_Pin GPIO_PIN_1
@@ -88,16 +82,11 @@ void Error_Handler(void);
 #define WHEEL_MOTOR_IN4_GPIO_Port GPIOA
 #define DEBUG_UART_RX_Pin GPIO_PIN_15
 #define DEBUG_UART_RX_GPIO_Port GPIOA
-#define ADA_BOB_MCS_Pin GPIO_PIN_3
-#define ADA_BOB_MCS_GPIO_Port GPIOB
 #define MILL_MOTOR_IN2_Pin GPIO_PIN_4
 #define MILL_MOTOR_IN2_GPIO_Port GPIOB
 #define TACH_INT_Pin GPIO_PIN_5
 #define TACH_INT_GPIO_Port GPIOB
 #define TACH_INT_EXTI_IRQn EXTI9_5_IRQn
-#define MILL_MOTOR_IN1_Pin GPIO_PIN_3
-#define MILL_MOTOR_IN1_GPIO_Port GPIOH
-
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

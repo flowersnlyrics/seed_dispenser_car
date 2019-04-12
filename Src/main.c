@@ -21,17 +21,18 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
-#include "spi.h"
+#include "i2c.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "LSM9DS1_Driver.h"
+//#include "LSM9DS1_Driver.h"
 #include "wheel_ctrl.h" 
 #include "car_ctrl.h"
 #include "blade_ctrl.h"
+#include "accel_if.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -95,26 +96,39 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_SPI1_Init();
   MX_TIM2_Init();
   MX_USART2_UART_Init();
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-  usart_clear_screen(); 
-  usart_print_ln("Seed Dispenser Car Starting...");
-
-  wheel_ctrl_start(RIGHT_WHEELS); 
-  wheel_ctrl_start(LEFT_WHEELS);
-  for(car_move_t dir = ADVANCE; dir < NUM_CAR_DIRS-1; dir++)
+  
+  uint8_t reg = 0x0F; 
+  uint8_t WHO_IS_MAG = 0x01, WHO_IS_XG = 0X01;
+  uint8_t reset_seq[2] = {0x22,  0x05};
+  
+  HAL_I2C_Master_Transmit_IT(&hi2c1, 0xD6, reset_seq, 2); // soft reset 
+  while(hi2c1.State != HAL_I2C_STATE_READY); 
+  
+  reset_seq[0] = 0x21; 
+  reset_seq[1] = 0x0C; 
+  HAL_I2C_Master_Transmit_IT(&hi2c1, 0x3C, reset_seq, 2); // soft reset 
+  while(hi2c1.State != HAL_I2C_STATE_READY); 
+  
+  HAL_Delay(10); 
+  
+  while(1)
   {
-    car_ctrl_move(dir); 
-    HAL_Delay(5000);
+    // MAGNETOMETER //
+    HAL_I2C_Master_Transmit_IT(&hi2c1, 0x3C, &reg, 1);
+    while(hi2c1.State != HAL_I2C_STATE_READY); 
+    HAL_I2C_Master_Receive_IT(&hi2c1, 0x3D, &WHO_IS_MAG,1 );
+    while(hi2c1.State != HAL_I2C_STATE_READY); 
+    
+    // ACCELEROMETER READ ME WORKS BUTCHES //
+    HAL_I2C_Master_Transmit_IT(&hi2c1, 0xD6, &reg, 1);
+    while(hi2c1.State != HAL_I2C_STATE_READY); 
+    HAL_I2C_Master_Receive_IT(&hi2c1, 0xD7, &WHO_IS_XG,1 );
+    while(hi2c1.State != HAL_I2C_STATE_READY); 
   }
-  wheel_ctrl_stop(RIGHT_WHEELS); 
-  wheel_ctrl_stop(LEFT_WHEELS);
- 
-  //loop(); 
-
-  while(1); 
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
@@ -182,8 +196,9 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART2;
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART2|RCC_PERIPHCLK_I2C1;
   PeriphClkInit.Usart2ClockSelection = RCC_USART2CLKSOURCE_PCLK1;
+  PeriphClkInit.I2c1ClockSelection = RCC_I2C1CLKSOURCE_PCLK1;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
     Error_Handler();

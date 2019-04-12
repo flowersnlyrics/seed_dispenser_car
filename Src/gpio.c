@@ -51,36 +51,32 @@ void MX_GPIO_Init(void)
   __HAL_RCC_GPIOH_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, ADA_BOB_ACS_Pin|WHEEL_MOTOR_IN1_Pin|WHEEL_MOTOR_IN2_Pin|WHEEL_MOTOR_IN3_Pin 
+  HAL_GPIO_WritePin(GPIOA, MILL_MOTOR_IN1_Pin|WHEEL_MOTOR_IN1_Pin|WHEEL_MOTOR_IN2_Pin|WHEEL_MOTOR_IN3_Pin 
                           |WHEEL_MOTOR_IN4_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, MILL_MOTOR_IN3_Pin|MILL_MOTOR_IN4_Pin|ADA_BOB_MCS_Pin|MILL_MOTOR_IN2_Pin, GPIO_PIN_RESET);
-  HAL_GPIO_WritePin(GPIOB, MILL_MOTOR_IN3_Pin|MILL_MOTOR_IN4_Pin|ADA_BOB_MCS_Pin|MILL_MOTOR_IN2_Pin 
-                          |MILL_MOTOR_IN1_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, MILL_MOTOR_IN3_Pin|MILL_MOTOR_IN4_Pin|MILL_MOTOR_IN2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LVL_SHIFTER_OE_HI_GPIO_Port, LVL_SHIFTER_OE_HI_Pin, GPIO_PIN_SET);
 
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(MILL_MOTOR_IN1_GPIO_Port, MILL_MOTOR_IN1_Pin, GPIO_PIN_RESET);
+  /*Configure GPIO pins : PA1 PA6 PA7 */
+  GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_6|GPIO_PIN_7;
+  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PAPin PAPin PAPin PAPin 
                            PAPin */
-  GPIO_InitStruct.Pin = ADA_BOB_ACS_Pin|WHEEL_MOTOR_IN1_Pin|WHEEL_MOTOR_IN2_Pin|WHEEL_MOTOR_IN3_Pin 
+  GPIO_InitStruct.Pin = MILL_MOTOR_IN1_Pin|WHEEL_MOTOR_IN1_Pin|WHEEL_MOTOR_IN2_Pin|WHEEL_MOTOR_IN3_Pin 
                           |WHEEL_MOTOR_IN4_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PBPin PBPin PBPin PBPin */
-  GPIO_InitStruct.Pin = MILL_MOTOR_IN3_Pin|MILL_MOTOR_IN4_Pin|ADA_BOB_MCS_Pin|MILL_MOTOR_IN2_Pin;
-
-  /*Configure GPIO pins : PBPin PBPin PBPin PBPin 
-                           PBPin */
-  GPIO_InitStruct.Pin = MILL_MOTOR_IN3_Pin|MILL_MOTOR_IN4_Pin|ADA_BOB_MCS_Pin|MILL_MOTOR_IN2_Pin 
-                          |MILL_MOTOR_IN1_Pin;
+  /*Configure GPIO pins : PBPin PBPin PBPin */
+  GPIO_InitStruct.Pin = MILL_MOTOR_IN3_Pin|MILL_MOTOR_IN4_Pin|MILL_MOTOR_IN2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -93,27 +89,23 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LVL_SHIFTER_OE_HI_GPIO_Port, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : PB3 */
+  GPIO_InitStruct.Pin = GPIO_PIN_3;
+  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
   /*Configure GPIO pin : PtPin */
   GPIO_InitStruct.Pin = TACH_INT_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(TACH_INT_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PB6 PB7 */
-  GPIO_InitStruct.Pin = GPIO_PIN_6|GPIO_PIN_7;
-
-  /*Configure GPIO pin : PB6 */
-  GPIO_InitStruct.Pin = GPIO_PIN_6;
-  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
   /*Configure GPIO pin : PH3 */
   GPIO_InitStruct.Pin = GPIO_PIN_3;
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
-
 
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI9_5_IRQn, 6, 0);

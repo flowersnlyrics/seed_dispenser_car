@@ -246,7 +246,7 @@
         <option>
           <name>CCAllowList</name>
           <version>1</version>
-          <state>11111110</state>
+          <state>00000000</state>
         </option>
         <option>
           <name>CCDebugInfo</name>
@@ -319,6 +319,10 @@
           <state>$PROJ_DIR$/../mill_ctrl</state>
           <state>$PROJ_DIR$/../wheel_ctrl</state>
           <state>$PROJ_DIR$/../blade_ctrl</state>
+          <state>$PROJ_DIR$/../if_adapters</state>
+          <state>$PROJ_DIR$/../if_adapters/accel_if/</state>
+          <state>$PROJ_DIR$/../if_adapters/gyro_if/</state>
+          <state>$PROJ_DIR$/../if_adapters/mag_if/</state>
           <state>$PROJ_DIR$/../Drivers/STM32L4xx_HAL_Driver/Inc</state>
           <state>$PROJ_DIR$/../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy</state>
           <state>$PROJ_DIR$/../Middlewares/Third_Party/FreeRTOS/Source/include</state>
@@ -347,7 +351,7 @@
         </option>
         <option>
           <name>CCOptLevel</name>
-          <state>3</state>
+          <state>0</state>
         </option>
         <option>
           <name>CCOptStrategy</name>
@@ -356,7 +360,7 @@
         </option>
         <option>
           <name>CCOptLevelSlave</name>
-          <state>3</state>
+          <state>0</state>
         </option>
         <option>
           <name>CompilerMisraRules98</name>
@@ -995,8 +999,73 @@
       </file>
     </group>
     <group>
+      <name>if_adapters</name>
+      <group>
+        <name>accel_if</name>
+        <file>
+          <name>$PROJ_DIR$\..\if_adapters\accel_if\accel_if.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\if_adapters\accel_if\accel_if.h</name>
+        </file>
+      </group>
+      <group>
+        <name>gyro_if</name>
+        <file>
+          <name>$PROJ_DIR$\..\if_adapters\gyro_if\gyro_if.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\if_adapters\gyro_if\gyro_if.h</name>
+        </file>
+      </group>
+      <group>
+        <name>mag_if</name>
+        <file>
+          <name>$PROJ_DIR$\..\if_adapters\mag_if\mag_if.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\if_adapters\mag_if\mag_if.h</name>
+        </file>
+      </group>
+    </group>
+    <group>
+      <name>User</name>
+      <file>
+        <name>$PROJ_DIR$\..\Src\spi.c</name>
+        <excluded>
+          <configuration>seedDispenserCar</configuration>
+        </excluded>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\Src\main.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\Src\gpio.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\Src\freertos.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\Src\i2c.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\Src\tim.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\Src\usart.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\Src\stm32l4xx_it.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\Src\stm32l4xx_hal_msp.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\Src\stm32l4xx_hal_timebase_tim.c</name>
+      </file>
+    </group>
+    <group>
       <name>wheel_ctrl</name>
-      <name>mill_ctrl</name>
       <group>
         <name>blade_ctrl</name>
         <file>
@@ -1008,40 +1077,6 @@
       </group>
       <file>
         <name>$PROJ_DIR$\..\mill_ctrl\mill_ctrl.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\wheel_ctrl\wheel_ctrl.h</name>
-        <name>$PROJ_DIR$\..\mill_ctrl\mill_ctrl.h</name>
-      </file>
-    </group>
-    <group>
-      <name>User</name>
-      <file>
-        <name>$PROJ_DIR$/../Src/main.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$/../Src/gpio.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$/../Src/freertos.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$/../Src/spi.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$/../Src/tim.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$/../Src/usart.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$/../Src/stm32l4xx_it.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$/../Src/stm32l4xx_hal_msp.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$/../Src/stm32l4xx_hal_timebase_tim.c</name>
       </file>
     </group>
   </group>
@@ -1055,6 +1090,9 @@
     </group>
     <group>
       <name>LSM9DS1_Driver</name>
+      <excluded>
+        <configuration>seedDispenserCar</configuration>
+      </excluded>
       <group>
         <name>Inc</name>
         <file>
@@ -1074,6 +1112,12 @@
         <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_spi_ex.c</name>
       </file>
       <file>
+        <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_i2c.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_i2c_ex.c</name>
+      </file>
+      <file>
         <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_tim.c</name>
       </file>
       <file>
@@ -1087,12 +1131,6 @@
       </file>
       <file>
         <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_i2c.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_i2c_ex.c</name>
       </file>
       <file>
         <name>$PROJ_DIR$\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_rcc.c</name>
@@ -1179,33 +1217,6 @@
   </group>
   <group>
     <name>User</name>
-    <file>
-      <name>$PROJ_DIR$\..\Src\freertos.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\Src\gpio.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\Src\main.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\Src\spi.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\Src\stm32l4xx_hal_msp.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\Src\stm32l4xx_hal_timebase_tim.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\Src\stm32l4xx_it.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\Src\tim.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\Src\usart.c</name>
-    </file>
   </group>
 </project>
 

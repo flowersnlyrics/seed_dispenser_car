@@ -19,7 +19,7 @@
           <analyzeTimeoutEnabled>1</analyzeTimeoutEnabled>
           <analyzeTimeout>600</analyzeTimeout>
           <enableParallel>0</enableParallel>
-          <parallelThreads>2</parallelThreads>
+          <parallelThreads>4</parallelThreads>
           <enableFalsePositives>0</enableFalsePositives>
           <messagesLimitEnabled>1</messagesLimitEnabled>
           <messagesLimit>100</messagesLimit>
@@ -1179,39 +1179,70 @@
       </file>
     </group>
     <group>
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <name>motors</name>
+      <name>if_adapters</name>
       <group>
-        <name>motor_c_ctrl</name>
+        <name>accel_if</name>
         <file>
-          <name>$PROJ_DIR$\..\motor\motor_c_ctrl\motor_c_ctrl.c</name>
+          <name>$PROJ_DIR$\..\if_adapters\accel_if\accel_if.c</name>
         </file>
         <file>
-          <name>$PROJ_DIR$\..\motor\motor_c_ctrl\motor_c_ctrl.h</name>
+          <name>$PROJ_DIR$\..\if_adapters\accel_if\accel_if.h</name>
         </file>
       </group>
       <group>
-        <name>motor_w_ctrl</name>
+        <name>gyro_if</name>
         <file>
-          <name>$PROJ_DIR$\..\motor\motor_w_ctrl\motor_w_ctrl.c</name>
+          <name>$PROJ_DIR$\..\if_adapters\gyro_if\gyro_if.c</name>
         </file>
         <file>
-          <name>$PROJ_DIR$\..\motor\motor_w_ctrl\motor_w_ctrl.h</name>
+          <name>$PROJ_DIR$\..\if_adapters\gyro_if\gyro_if.h</name>
+        </file>
+      </group>
+      <group>
+        <name>mag_if</name>
+        <file>
+          <name>$PROJ_DIR$\..\if_adapters\mag_if\mag_if.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\if_adapters\mag_if\mag_if.h</name>
         </file>
       </group>
     </group>
     <group>
-      <name>windmill_ctrl</name>
+      <name>User</name>
       <file>
-        <name>$PROJ_DIR$\..\windmill_ctrl\windmill_ctrl.c</name>
+        <name>$PROJ_DIR$\..\Src\freertos.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\windmill_ctrl\windmill_ctrl.h</name>
-=======
+        <name>$PROJ_DIR$\..\Src\gpio.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\Src\i2c.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\Src\main.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\Src\spi.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\Src\stm32l4xx_hal_msp.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\Src\stm32l4xx_hal_timebase_tim.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\Src\stm32l4xx_it.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\Src\tim.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\Src\usart.c</name>
+      </file>
+    </group>
+    <group>
       <name>wheel_ctrl</name>
-=======
-      <name>mill_ctrl</name>
       <group>
         <name>blade_ctrl</name>
         <file>
@@ -1221,17 +1252,8 @@
           <name>$PROJ_DIR$\..\blade_ctrl\blade_ctrl.h</name>
         </file>
       </group>
->>>>>>> my_car
       <file>
         <name>$PROJ_DIR$\..\mill_ctrl\mill_ctrl.c</name>
-      </file>
-      <file>
-<<<<<<< HEAD
-        <name>$PROJ_DIR$\..\wheel_ctrl\wheel_ctrl.h</name>
->>>>>>> my_car
-=======
-        <name>$PROJ_DIR$\..\mill_ctrl\mill_ctrl.h</name>
->>>>>>> my_car
       </file>
     </group>
   </group>
@@ -1369,33 +1391,6 @@
   </group>
   <group>
     <name>User</name>
-    <file>
-      <name>$PROJ_DIR$\..\Src\freertos.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\Src\gpio.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\Src\main.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\Src\spi.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\Src\stm32l4xx_hal_msp.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\Src\stm32l4xx_hal_timebase_tim.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\Src\stm32l4xx_it.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\Src\tim.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\Src\usart.c</name>
-    </file>
   </group>
 </project>
 
