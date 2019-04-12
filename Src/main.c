@@ -103,10 +103,14 @@ int main(void)
   
   uint8_t reg = 0x0F; 
   uint8_t WHO_IS_MAG = 0x01, WHO_IS_XG = 0X01;
-  uint8_t reset_seq[2] = {0x22,  0x05};
+  uint8_t reset_seq[2] = {0x22,  
+                          CTRL_REG8_SW_RESET_RESET | CTRL_REG8_IF_ADD_INC_EN};
   
-  HAL_I2C_Master_Transmit_IT(&hi2c1, 0xD6, reset_seq, 2); // soft reset 
-  while(hi2c1.State != HAL_I2C_STATE_READY); 
+  //HAL_I2C_Master_Transmit_IT(&hi2c1, 0xD6, reset_seq, 2); // soft reset 
+  //while(hi2c1.State != HAL_I2C_STATE_READY); 
+ 
+  accel_if_init(); 
+  //accel_if_write_reg(CTRL_REG_8, &reset_seq[1]); 
   
   reset_seq[0] = 0x21; 
   reset_seq[1] = 0x0C; 

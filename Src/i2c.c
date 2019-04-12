@@ -20,10 +20,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "i2c.h"
 
-/* USER CODE BEGIN 0 */
-
-/* USER CODE END 0 */
-
 I2C_HandleTypeDef hi2c1;
 
 /* I2C1 init function */
@@ -117,7 +113,35 @@ void HAL_I2C_MspDeInit(I2C_HandleTypeDef* i2cHandle)
 } 
 
 /* USER CODE BEGIN 1 */
-
+/******************************************************************************
+ * @fn      i2c_wait_for_i2c
+ * @brief   This function is set to have a random timeout, so that if an i2c rx
+ *              or tx fails, the program won't be stuck waiting for an ACK
+ * @param   h_i2cx: I^2C Handle 
+ * @return  If transmit or receive was performed successfully
+ ******************************************************************************/
+bool i2c_wait_for_i2c(I2C_HandleTypeDef *h_i2cx)
+{
+  static const unsigned int I2C_TIMEOUT_MSEC = 100;
+  static const unsigned int I2C_TIMEOUT_INCR_MSEC = 10;
+  unsigned int elapsed_msec;
+  
+  elapsed_msec = 0;
+  
+  while (HAL_I2C_GetState(h_i2cx) != HAL_I2C_STATE_READY && elapsed_msec < I2C_TIMEOUT_MSEC)
+  {
+    HAL_Delay(I2C_TIMEOUT_INCR_MSEC);
+    
+    elapsed_msec += I2C_TIMEOUT_INCR_MSEC;
+  }
+  
+  if (HAL_I2C_GetState(h_i2cx) != HAL_I2C_STATE_READY)
+  {
+    return false;
+  }
+  
+  return true;
+}
 /* USER CODE END 1 */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -1161,6 +1161,9 @@
   <group>
     <name>Application</name>
     <group>
+      <name>accel_ctrl</name>
+    </group>
+    <group>
       <name>car_ctrl</name>
       <group>
         <name>wheel_ctrl</name>
