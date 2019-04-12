@@ -5,8 +5,8 @@
 /* ----------------------------------- Accelerometer read and write addresses */
 #define ACCEL_I2C_READ_ADDR     0xD7
 #define ACCEL_I2C_WRITE_ADDR    0xD6
-#define SIZE_OF_REGISTER        0x01 // byte 
-#define SIZE_OF_REGISTER_ADDR   0x01 // byte 
+#define SIZE_OF_ACCEL_REGISTER        0x01 // byte 
+#define SIZE_OF_ACCEL_REGISTER_ADDR   0x01 // byte 
 
 /* ------------------------------- Accelerometer Register Address Definitions */
 #define ACT_THS_ADDR                 0x04
