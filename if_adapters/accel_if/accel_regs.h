@@ -60,8 +60,14 @@
 #define INT_GEN_THS_ZL_G_ADDR        0x36
 #define INT_GEN_DUR_G_ADDR           0x37
 
-/* ---------------------------------------------- Bitmasks for CTRL_REG8 0x22 */
+/* ------------------------------------------ Bitmasks for  CTRL_REG6_XL 0x20 */
+#define CTRL_REG6_XL_FS_XL_Pos		(3U)		                        /*!<full-scale selection */
+#define CTRL_REG6_XL_FS_XL_Msk		(0x3U << CTRL_REG6_XL_FS_XL_Pos)	/*!<Mask */
+#define CTRL_REG6_XL_FS_XL_PM_16G	(0x1U << CTRL_REG6_XL_FS_XL_Pos)	/*!<0x0008 */
+#define CTRL_REG6_XL_FS_XL_PM_4G	(0x2U << CTRL_REG6_XL_FS_XL_Pos)	/*!<0x0010 */
+#define CTRL_REG6_XL_FS_XL_PM_8G	(0x3U << CTRL_REG6_XL_FS_XL_Pos)	/*!<0x0018 */
 
+/* ---------------------------------------------- Bitmasks for CTRL_REG8 0x22 */
 #define CTRL_REG8_SW_RESET_Pos		(0U)		                        /*!<Software reset */
 #define CTRL_REG8_SW_RESET_Msk		(0x1U << CTRL_REG8_SW_RESET_Pos)	/*!<Mask */
 #define CTRL_REG8_SW_RESET_RESET	(0x1U << CTRL_REG8_SW_RESET_Pos)	/*!<0x0001 */
@@ -69,6 +75,9 @@
 #define CTRL_REG8_IF_ADD_INC_Pos	(2U)		                        /*!<Reg addr increments automatically */
 #define CTRL_REG8_IF_ADD_INC_Msk	(0x1U << CTRL_REG8_IF_ADD_INC_Pos)	/*!<Mask */
 #define CTRL_REG8_IF_ADD_INC_EN	        (0x1U << CTRL_REG8_IF_ADD_INC_Pos)	/*!<0x0004 */
+
+
+
 
 #endif /* __ACCEL_REGS_H__ */
 

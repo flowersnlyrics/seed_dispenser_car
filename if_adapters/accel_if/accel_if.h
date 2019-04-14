@@ -11,6 +11,7 @@
 typedef enum 
 {
   WHO_AM_I_XG = 0, 
+  CTRL_REG6_XL, 
   CTRL_REG_8,
   NUM_ACCEL_REGS
 } accel_reg_t; 

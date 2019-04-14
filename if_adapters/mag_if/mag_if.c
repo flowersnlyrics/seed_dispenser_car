@@ -5,6 +5,7 @@
 
 /* ----------------------------------------------------------------- Includes */
 #include "mag_if.h"
+#include "accel_if.h"
 
 /* ------------------------------------------------------ Private Definitions */
 #define MAG_I2C_HANDLE hi2c1 
@@ -31,7 +32,12 @@ static bool write(uint8_t* tx, uint8_t size);
  ******************************************************************************/
 bool mag_if_init(void)
 {
-  return mag_if_reset(); 
+  if(mag_if_reset())
+  {
+    return accel_if_reset(); 
+  }
+ 
+  return false; 
 }
  
 /******************************************************************************
@@ -79,7 +85,7 @@ bool mag_if_reset(void)
 {
   uint8_t reset_cmd =  CTRL_REG2_M_REBOOT_REBOOT | CTRL_REG2_M_SOFT_RST_RESET; 
   
-  if(!mag_if_write_reg(CTRL_REG2, &reset_cmd))
+  if(!mag_if_write_reg(CTRL_REG2_M, &reset_cmd))
   {
     return false; 
   }

@@ -77,7 +77,8 @@ static motor_pin_t COIL_DESC[NUM_COILS] =
 void loop(void)
 {
   /* Run through these steps a certain number of times */
-  for(int i= 0; i < 512; i++) // 512 is about 8 seconds
+  //for(int i= 0; i < 512; i++) // 512 is about 8 seconds
+  while(1)
   {
     /* Set the settings for each step */
     for(step_idx_t step = STEP_1; step < NUM_STEPS; step++)

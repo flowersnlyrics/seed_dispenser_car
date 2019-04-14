@@ -5,6 +5,7 @@
 
 /* ----------------------------------------------------------------- Includes */
 #include "accel_if.h"
+#include "mag_if.h"
 
 /* ------------------------------------------------------ Private Definitions */
 #define ACCEL_I2C_HANDLE hi2c1 
@@ -12,6 +13,7 @@
 static uint8_t ADDR_DESC[NUM_ACCEL_REGS] = 
 {
   WHO_AM_I_XG_ADDR, 
+  CTRL_REG6_XL_ADDR,
   CTRL_REG8_ADDR, 
 };
 
@@ -31,7 +33,12 @@ static bool write(uint8_t* tx, uint8_t size);
  ******************************************************************************/
 bool accel_if_init(void)
 {
-  return accel_if_reset(); 
+  if(accel_if_reset())
+  {
+    return mag_if_reset();
+  }
+  
+  return false; 
 }
  
 /******************************************************************************
@@ -60,7 +67,9 @@ bool accel_if_read_reg(accel_reg_t reg, uint8_t* buff)
  ******************************************************************************/
 bool accel_if_write_reg(accel_reg_t reg, uint8_t* buff)
 { 
-  if(!write(&ADDR_DESC[reg], 
+  uint8_t tx[2] = {ADDR_DESC[reg], *buff};
+  
+  if(!write(tx, 
             (SIZE_OF_ACCEL_REGISTER + SIZE_OF_ACCEL_REGISTER_ADDR))
      )
   {

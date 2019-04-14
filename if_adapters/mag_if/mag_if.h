@@ -11,7 +11,7 @@
 typedef enum 
 {
   WHO_AM_I_M = 0, 
-  CTRL_REG2,
+  CTRL_REG2_M,
   NUM_MAG_REGS
 } mag_reg_t; 
 

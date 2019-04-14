@@ -43,6 +43,12 @@
 #define CTRL_REG2_M_SOFT_RST_Msk	(0x1U << CTRL_REG2_M_SOFT_RST_Pos)	/*!<Mask */
 #define CTRL_REG2_M_SOFT_RST_RESET	(0x1U << CTRL_REG2_M_SOFT_RST_Pos)	/*!<0x0004 */
 
+#define CTRL_REG2_M_FS_Pos		(5U)		                        /*!<full scale config */
+#define CTRL_REG2_M_FS_Msk		(0x3U << CTRL_REG2_M_FS_Pos)	        /*!<Mask */
+#define CTRL_REG2_M_FS_PM_8GAUSS	(0x1U << CTRL_REG2_M_FS_Pos)	        /*!<0x0020 */
+#define CTRL_REG2_M_FS_PM_12GAUSS	(0x2U << CTRL_REG2_M_FS_Pos)	        /*!<0x0040 */
+#define CTRL_REG2_M_FS_PM_16GAUSS	(0x3U << CTRL_REG2_M_FS_Pos)	        /*!<0x0060 */
+
 
 #endif /* __MAG_REGS_H__ */
 

@@ -1162,6 +1162,12 @@
     <name>Application</name>
     <group>
       <name>accel_ctrl</name>
+      <file>
+        <name>$PROJ_DIR$\..\accel_ctrl\accel_ctrl.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\accel_ctrl\accel_ctrl.h</name>
+      </file>
     </group>
     <group>
       <name>car_ctrl</name>
@@ -1209,40 +1215,16 @@
       </group>
     </group>
     <group>
-      <name>User</name>
+      <name>mag_ctrl</name>
       <file>
-        <name>$PROJ_DIR$\..\Src\freertos.c</name>
+        <name>$PROJ_DIR$\..\mag_ctrl\mag_ctrl.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\Src\gpio.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\Src\i2c.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\Src\main.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\Src\spi.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\Src\stm32l4xx_hal_msp.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\Src\stm32l4xx_hal_timebase_tim.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\Src\stm32l4xx_it.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\Src\tim.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\Src\usart.c</name>
+        <name>$PROJ_DIR$\..\mag_ctrl\mag_ctrl.h</name>
       </file>
     </group>
     <group>
-      <name>wheel_ctrl</name>
+      <name>mill_ctrl</name>
       <group>
         <name>blade_ctrl</name>
         <file>
@@ -1391,6 +1373,39 @@
   </group>
   <group>
     <name>User</name>
+  </group>
+  <group>
+    <name>User</name>
+    <file>
+      <name>$PROJ_DIR$\..\Src\freertos.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\gpio.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\i2c.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\main.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\spi.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\stm32l4xx_hal_msp.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\stm32l4xx_hal_timebase_tim.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\stm32l4xx_it.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\tim.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\usart.c</name>
+    </file>
   </group>
 </project>
 

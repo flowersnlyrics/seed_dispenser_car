@@ -1,22 +1,7 @@
-/* USER CODE BEGIN Header */
-/**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; Copyright (c) 2019 STMicroelectronics.
-  * All rights reserved.</center></h2>
-  *
-  * This software component is licensed by ST under Ultimate Liberty license
-  * SLA0044, the "License"; You may not use this file except in compliance with
-  * the License. You may obtain a copy of the License at:
-  *                             www.st.com/SLA0044
-  *
-  ******************************************************************************
-  */
-/* USER CODE END Header */
+/*******************************************************************************
+* @file           : main.c
+* @brief          : Main program body
+*******************************************************************************/
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
@@ -25,49 +10,20 @@
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
-
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
-//#include "LSM9DS1_Driver.h"
 #include "wheel_ctrl.h" 
 #include "car_ctrl.h"
 #include "blade_ctrl.h"
-#include "accel_if.h"
+#include "accel_ctrl.h"
+#include "mag_ctrl.h"
+//#include "accel_if.h"
 #include "mag_if.h"
-/* USER CODE END Includes */
 
-/* Private typedef -----------------------------------------------------------*/
-/* USER CODE BEGIN PTD */
-
-/* USER CODE END PTD */
-
-/* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN PD */
-
-/* USER CODE END PD */
-
-/* Private macro -------------------------------------------------------------*/
-/* USER CODE BEGIN PM */
-
-/* USER CODE END PM */
-
-/* Private variables ---------------------------------------------------------*/
-
-/* USER CODE BEGIN PV */
-
-/* USER CODE END PV */
+/* Private Definitions -------------------------------------------------------*/
+uint8_t WHO_IS_MAG = 0x01, WHO_IS_XG = 0X01; // TODO: remove after test phase
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 void MX_FREERTOS_Init(void);
-/* USER CODE BEGIN PFP */
-
-/* USER CODE END PFP */
-
-/* Private user code ---------------------------------------------------------*/
-/* USER CODE BEGIN 0 */
-
-/* USER CODE END 0 */
 
 /**
   * @brief  The application entry point.
@@ -75,38 +31,24 @@ void MX_FREERTOS_Init(void);
   */
 int main(void)
 {
-  /* USER CODE BEGIN 1 */
-
-  /* USER CODE END 1 */
-
   /* MCU Configuration--------------------------------------------------------*/
 
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  /* Reset all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
-
-  /* USER CODE BEGIN Init */
-
-  /* USER CODE END Init */
-
+  
   /* Configure the system clock */
   SystemClock_Config();
-
-  /* USER CODE BEGIN SysInit */
-
-  /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_TIM2_Init();
   MX_USART2_UART_Init();
   MX_I2C1_Init();
-  /* USER CODE BEGIN 2 */
+  //accel_if_init(); 
+  mag_ctrl_init(); 
+  accel_ctrl_init(); 
   
-  uint8_t WHO_IS_MAG = 0x01, WHO_IS_XG = 0X01;
-  accel_if_init(); 
-  mag_if_init(); 
-
-  HAL_Delay(10); 
+  loop(); 
   
   while(1)
   {
@@ -114,7 +56,6 @@ int main(void)
     mag_if_read_reg(WHO_AM_I_M, &WHO_IS_MAG); 
     accel_if_read_reg(WHO_AM_I_XG, &WHO_IS_XG); 
   }
-  /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
   MX_FREERTOS_Init();
@@ -125,15 +66,9 @@ int main(void)
   /* We should never get here as control is now taken by the scheduler */
 
   /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
-
   while (1)
   {
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
   }
-  /* USER CODE END 3 */
 }
 
 /**
@@ -198,10 +133,6 @@ void SystemClock_Config(void)
   */
   HAL_RCCEx_EnableMSIPLLMode();
 }
-
-/* USER CODE BEGIN 4 */
-
-/* USER CODE END 4 */
 
 /**
   * @brief  Period elapsed callback in non blocking mode
