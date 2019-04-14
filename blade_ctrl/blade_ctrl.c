@@ -81,7 +81,8 @@ void loop(void)
   while(1)
   {
     /* Set the settings for each step */
-    for(step_idx_t step = STEP_1; step < NUM_STEPS; step++)
+    //for(step_idx_t step = STEP_1; step < NUM_STEPS; step++)
+    for(step_idx_t step = STEP_8; step < NUM_STEPS; step--)
     {
        for(coil_t coil = COIL_1; coil< NUM_COILS; coil++)
        {

@@ -14,6 +14,7 @@ static uint8_t ADDR_DESC[NUM_MAG_REGS] =
 {
   WHO_AM_I_M_ADDR, 
   CTRL_REG2_M_ADDR, 
+  CTRL_REG3_M_ADDR
 };
 
 /* ---------------------------------------------- Private Function Prototypes */

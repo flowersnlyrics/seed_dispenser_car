@@ -60,12 +60,36 @@
 #define INT_GEN_THS_ZL_G_ADDR        0x36
 #define INT_GEN_DUR_G_ADDR           0x37
 
+
+
+/* ------------------------------------------ Bitmasks for  CTRL_REG5_XL 0x1F */
+#define CTRL_REG5_XL_Xen_XL_Pos		(3U)		                        /*!<x-axis output enable */
+#define CTRL_REG5_XL_Xen_XL_Msk		(0x1U << CTRL_REG5_XL_Xen_XL_Pos)	/*!<Mask */
+#define CTRL_REG5_XL_Xen_XL_ENABLE	(0x1U << CTRL_REG5_XL_Xen_XL_Pos)	/*!<0x0008 */
+
+#define CTRL_REG5_XL_Yen_XL_Pos		(4U)		                        /*!<y-axis output enable */
+#define CTRL_REG5_XL_Yen_XL_Msk		(0x1U << CTRL_REG5_XL_Yen_XL_Pos)	/*!<Mask */
+#define CTRL_REG5_XL_Yen_XL_ENABLE	(0x1U << CTRL_REG5_XL_Yen_XL_Pos)	/*!<0x0010 */
+
+#define CTRL_REG5_XL_Zen_XL_Pos		(5U)		                        /*!<z-axis output enable */
+#define CTRL_REG5_XL_Zen_XL_Msk		(0x1U << CTRL_REG5_XL_Zen_XL_Pos)	/*!<Mask */
+#define CTRL_REG5_XL_Zen_XL_ENABLE	(0x1U << CTRL_REG5_XL_Zen_XL_Pos)	/*!<0x0020 */
+
 /* ------------------------------------------ Bitmasks for  CTRL_REG6_XL 0x20 */
 #define CTRL_REG6_XL_FS_XL_Pos		(3U)		                        /*!<full-scale selection */
 #define CTRL_REG6_XL_FS_XL_Msk		(0x3U << CTRL_REG6_XL_FS_XL_Pos)	/*!<Mask */
 #define CTRL_REG6_XL_FS_XL_PM_16G	(0x1U << CTRL_REG6_XL_FS_XL_Pos)	/*!<0x0008 */
 #define CTRL_REG6_XL_FS_XL_PM_4G	(0x2U << CTRL_REG6_XL_FS_XL_Pos)	/*!<0x0010 */
 #define CTRL_REG6_XL_FS_XL_PM_8G	(0x3U << CTRL_REG6_XL_FS_XL_Pos)	/*!<0x0018 */
+
+#define CTRL_REG6_XL_ODR_XL_Pos		(5U)		                        /*!<output data rate and power mode selection */
+#define CTRL_REG6_XL_ODR_XL_Msk		(0x7U << CTRL_REG6_XL_ODR_XL_Pos)	/*!<Mask */
+#define CTRL_REG6_XL_ODR_XL_10_HZ	(0x1U << CTRL_REG6_XL_ODR_XL_Pos)	/*!<0x0020 */
+#define CTRL_REG6_XL_ODR_XL_50_HZ	(0x2U << CTRL_REG6_XL_ODR_XL_Pos)	/*!<0x0040 */
+#define CTRL_REG6_XL_ODR_XL_119_HZ	(0x3U << CTRL_REG6_XL_ODR_XL_Pos)	/*!<0x0060 */
+#define CTRL_REG6_XL_ODR_XL_238_HZ	(0x4U << CTRL_REG6_XL_ODR_XL_Pos)	/*!<0x0080 */
+#define CTRL_REG6_XL_ODR_XL_476_HZ	(0x5U << CTRL_REG6_XL_ODR_XL_Pos)	/*!<0x00A0 */
+#define CTRL_REG6_XL_ODR_XL_952_HZ	(0x6U << CTRL_REG6_XL_ODR_XL_Pos)	/*!<0x00C0 */
 
 /* ---------------------------------------------- Bitmasks for CTRL_REG8 0x22 */
 #define CTRL_REG8_SW_RESET_Pos		(0U)		                        /*!<Software reset */
