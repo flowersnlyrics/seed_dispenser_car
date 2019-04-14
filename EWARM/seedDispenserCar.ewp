@@ -988,7 +988,7 @@
     </settings>
   </configuration>
   <group>
-    <name>Application</name>
+    <name>application</name>
     <group>
       <name>accel_ctrl</name>
       <file>
@@ -1174,6 +1174,60 @@
     </file>
   </group>
   <group>
+    <name>HAL</name>
+    <group>
+      <name>gpio</name>
+      <file>
+        <name>$PROJ_DIR$\..\HAL\gpio\gpio.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\HAL\gpio\gpio.h</name>
+      </file>
+    </group>
+    <group>
+      <name>i2c</name>
+      <file>
+        <name>$PROJ_DIR$\..\HAL\i2c\i2c.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\HAL\i2c\i2c.h</name>
+      </file>
+    </group>
+    <group>
+      <name>timer</name>
+      <file>
+        <name>$PROJ_DIR$\..\HAL\timer\tim.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\HAL\timer\tim.h</name>
+      </file>
+    </group>
+    <group>
+      <name>uart</name>
+      <excluded>
+        <configuration>seedDispenserCar</configuration>
+      </excluded>
+      <file>
+        <name>$PROJ_DIR$\..\HAL\uart\uart.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\HAL\uart\uart.h</name>
+      </file>
+    </group>
+    <file>
+      <name>$PROJ_DIR$\..\Src\freertos.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\HAL\stm32l4xx_hal_msp.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\HAL\stm32l4xx_hal_timebase_tim.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\HAL\stm32l4xx_it.c</name>
+    </file>
+  </group>
+  <group>
     <name>Middlewares</name>
     <group>
       <name>FreeRTOS</name>
@@ -1211,57 +1265,6 @@
         <name>$PROJ_DIR$\..\Middlewares\Third_Party\FreeRTOS\Source\timers.c</name>
       </file>
     </group>
-  </group>
-  <group>
-    <name>HAL</name>
-    <group>
-      <name>gpio</name>
-      <file>
-        <name>$PROJ_DIR$\..\HAL\gpio\gpio.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\HAL\gpio\gpio.h</name>
-      </file>
-    </group>
-    <group>
-      <name>i2c</name>
-      <file>
-        <name>$PROJ_DIR$\..\HAL\i2c\i2c.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\HAL\i2c\i2c.h</name>
-      </file>
-    </group>
-    <group>
-      <name>timer</name>
-      <file>
-        <name>$PROJ_DIR$\..\HAL\timer\tim.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\HAL\timer\tim.h</name>
-      </file>
-    </group>
-    <group>
-      <name>uart</name>
-      <file>
-        <name>$PROJ_DIR$\..\HAL\uart\uart.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\HAL\uart\uart.h</name>
-      </file>
-    </group>
-    <file>
-      <name>$PROJ_DIR$\..\Src\freertos.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\HAL\stm32l4xx_hal_msp.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\HAL\stm32l4xx_hal_timebase_tim.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\HAL\stm32l4xx_it.c</name>
-    </file>
   </group>
 </project>
 
