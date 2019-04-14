@@ -13,8 +13,15 @@ typedef enum
   NUM_AXES
 } axis_t; 
 
+typedef struct
+{
+  float x; 
+  float y; 
+  float z; 
+} accel_read_t; 
+
 /* ----------------------------------------------- Public Function Prototypes */
 bool accel_ctrl_init(void); 
-
+bool accel_ctrl_get_read(accel_read_t* read); 
 
 #endif /* __ACCEL_CTRL_H__ */

@@ -14,6 +14,13 @@ typedef enum
   CTRL_REG5_XL, 
   CTRL_REG6_XL, 
   CTRL_REG_8,
+  STATUS_1, 
+  OUT_X_L_XL,
+  OUT_X_H_XL,
+  OUT_Y_L_XL,
+  OUT_Y_H_XL, 
+  OUT_Z_L_XL,
+  OUT_Z_H_XL, 
   NUM_ACCEL_REGS
 } accel_reg_t; 
 

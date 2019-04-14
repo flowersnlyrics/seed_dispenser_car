@@ -48,7 +48,9 @@ int main(void)
   mag_ctrl_init(); 
   accel_ctrl_init(); 
   
-  loop(); 
+  accel_read_t read; 
+  accel_ctrl_get_read(&read); 
+  //loop(); 
   
   while(1)
   {

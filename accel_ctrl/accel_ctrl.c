@@ -6,6 +6,9 @@
 #include "accel_ctrl.h"
 
 /* ------------------------------------------------------ Private Definitions */
+#define LSM9DS1_ACCEL_MG_LSB_4G (0.122f)
+#define MG_PER_G                (1000.0f)
+
 typedef enum 
 {
   FS_GRAV_2G = 0, 
@@ -31,6 +34,7 @@ typedef enum
 static bool set_full_scale(fs_grav_t fs); 
 static bool set_axis_enable(axis_t axis, bool en); 
 static bool set_odr(odr_xl_t odr); 
+static float read_to_float(uint8_t msb, uint8_t lsb); 
 
 /* ---------------------------------------------- Public Function Definitions */
 
@@ -70,6 +74,56 @@ bool accel_ctrl_init(void)
   
   return true; 
 }
+
+/******************************************************************************
+ * @fn      accel_ctrl_get_read
+ * @brief  
+ * @param 
+ * @return  
+ ******************************************************************************/
+bool accel_ctrl_get_read(accel_read_t* read)
+{
+  uint8_t buff[NUM_AXES * 2]; 
+  accel_reg_t addrs[NUM_AXES * 2] = { OUT_X_L_XL,
+                                      OUT_X_H_XL,
+                                      OUT_Y_L_XL,
+                                      OUT_Y_H_XL, 
+                                      OUT_Z_L_XL,
+                                      OUT_Z_H_XL}; 
+  uint8_t status_1 ; 
+  
+  do
+  {
+  if(!accel_if_read_reg(STATUS_1, &status_1))
+  {
+    return false; 
+  }
+  } while(status_1 & 0x01 != 0x01);
+  
+  
+  
+  for(int i = 0; i < (NUM_AXES *2); i++)
+  {
+    if(!accel_if_read_reg(addrs[i], &buff[i]))
+    {
+      return false; 
+    }
+  }
+ 
+  read->x = read_to_float(buff[1], buff[0]) * LSM9DS1_ACCEL_MG_LSB_4G ;
+  read->x /= MG_PER_G;
+  
+  read->y = read_to_float(buff[3], buff[2]) * LSM9DS1_ACCEL_MG_LSB_4G ;
+  read->y /= MG_PER_G;
+  
+  read->z = read_to_float(buff[5], buff[4]) * LSM9DS1_ACCEL_MG_LSB_4G ;
+  read->z /= MG_PER_G;
+  
+  return true; 
+  
+}
+
+/* Private Function Definitions */
 
 /******************************************************************************
  * @fn      set_full_scale
@@ -210,4 +264,30 @@ static bool set_odr(odr_xl_t odr)
   // TODO delete after debuggin (return the write return) 
   return true; 
   
+}
+
+/******************************************************************************
+ * @fn      read_to_float
+ * @brief  
+ * @param   
+ * @param   
+ * @return  
+ ******************************************************************************/
+static float read_to_float(uint8_t msb, uint8_t lsb)
+{
+  uint16_t tmp;
+  bool neg = false; 
+  float ret; 
+  
+  tmp = (msb << 8) | lsb;
+  
+  if(msb & 0x80)
+  {
+    neg = true; 
+    tmp = ~tmp + 1;
+  }
+  
+  ret = neg ? (-1.0f * (float)(tmp)) : (float)(tmp);
+
+  return ret; 
 }

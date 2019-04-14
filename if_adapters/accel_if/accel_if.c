@@ -15,7 +15,14 @@ static uint8_t ADDR_DESC[NUM_ACCEL_REGS] =
   WHO_AM_I_XG_ADDR, 
   CTRL_REG5_XL_ADDR,
   CTRL_REG6_XL_ADDR,
-  CTRL_REG8_ADDR, 
+  CTRL_REG8_ADDR,   
+  STATUS_REG_1_ADDR,
+  OUT_X_L_XL_ADDR,
+  OUT_X_H_XL_ADDR,
+  OUT_Y_L_XL_ADDR,
+  OUT_Y_H_XL_ADDR, 
+  OUT_Z_L_XL_ADDR,
+  OUT_Z_H_XL_ADDR, 
 };
 
 /* ---------------------------------------------- Private Function Prototypes */
