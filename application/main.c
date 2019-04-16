@@ -50,7 +50,7 @@ int main(void)
   
   accel_read_t read; 
   accel_ctrl_get_read(&read); 
-  //loop(); 
+  loop(); 
   
   while(1)
   {
