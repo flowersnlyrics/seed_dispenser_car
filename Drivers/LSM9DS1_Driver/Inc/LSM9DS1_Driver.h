@@ -2,7 +2,7 @@
 #define __LSM9DS1_DRVR_H
 
 #include "spi.h"
-#include "uart.h"
+#include "usart.h"
 
 extern SPI_HandleTypeDef hspi1;
 

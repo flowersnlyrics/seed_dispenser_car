@@ -1163,31 +1163,28 @@
     <group>
       <name>accel_ctrl</name>
       <file>
-        <name>$PROJ_DIR$\..\application\accel_ctrl\accel_ctrl.c</name>
+        <name>$PROJ_DIR$\..\accel_ctrl\accel_ctrl.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\application\accel_ctrl\accel_ctrl.h</name>
+        <name>$PROJ_DIR$\..\accel_ctrl\accel_ctrl.h</name>
       </file>
     </group>
     <group>
       <name>car_ctrl</name>
       <group>
-        <name>ll_drivers</name>
-      </group>
-      <group>
         <name>wheel_ctrl</name>
         <file>
-          <name>$PROJ_DIR$\..\application\wheel_ctrl\wheel_ctrl.c</name>
+          <name>$PROJ_DIR$\..\wheel_ctrl\wheel_ctrl.c</name>
         </file>
         <file>
-          <name>$PROJ_DIR$\..\application\wheel_ctrl\wheel_ctrl.h</name>
+          <name>$PROJ_DIR$\..\wheel_ctrl\wheel_ctrl.h</name>
         </file>
       </group>
       <file>
-        <name>$PROJ_DIR$\..\application\car_ctrl\car_ctrl.c</name>
+        <name>$PROJ_DIR$\..\car_ctrl\car_ctrl.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\application\car_ctrl\car_ctrl.h</name>
+        <name>$PROJ_DIR$\..\car_ctrl\car_ctrl.h</name>
       </file>
     </group>
     <group>
@@ -1195,35 +1192,35 @@
       <group>
         <name>accel_if</name>
         <file>
-          <name>$PROJ_DIR$\..\application\if_adapters\accel_if\accel_if.c</name>
+          <name>$PROJ_DIR$\..\if_adapters\accel_if\accel_if.c</name>
         </file>
         <file>
-          <name>$PROJ_DIR$\..\application\if_adapters\accel_if\accel_if.h</name>
+          <name>$PROJ_DIR$\..\if_adapters\accel_if\accel_if.h</name>
         </file>
         <file>
-          <name>$PROJ_DIR$\..\application\if_adapters\accel_if\accel_regs.h</name>
+          <name>$PROJ_DIR$\..\if_adapters\accel_if\accel_regs.h</name>
         </file>
       </group>
       <group>
         <name>mag_if</name>
         <file>
-          <name>$PROJ_DIR$\..\application\if_adapters\mag_if\mag_if.c</name>
+          <name>$PROJ_DIR$\..\if_adapters\mag_if\mag_if.c</name>
         </file>
         <file>
-          <name>$PROJ_DIR$\..\application\if_adapters\mag_if\mag_if.h</name>
+          <name>$PROJ_DIR$\..\if_adapters\mag_if\mag_if.h</name>
         </file>
         <file>
-          <name>$PROJ_DIR$\..\application\if_adapters\mag_if\mag_regs.h</name>
+          <name>$PROJ_DIR$\..\if_adapters\mag_if\mag_regs.h</name>
         </file>
       </group>
     </group>
     <group>
       <name>mag_ctrl</name>
       <file>
-        <name>$PROJ_DIR$\..\application\mag_ctrl\mag_ctrl.c</name>
+        <name>$PROJ_DIR$\..\mag_ctrl\mag_ctrl.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\application\mag_ctrl\mag_ctrl.h</name>
+        <name>$PROJ_DIR$\..\mag_ctrl\mag_ctrl.h</name>
       </file>
     </group>
     <group>
@@ -1231,22 +1228,16 @@
       <group>
         <name>blade_ctrl</name>
         <file>
-          <name>$PROJ_DIR$\..\application\blade_ctrl\blade_ctrl.c</name>
+          <name>$PROJ_DIR$\..\blade_ctrl\blade_ctrl.c</name>
         </file>
         <file>
-          <name>$PROJ_DIR$\..\application\blade_ctrl\blade_ctrl.h</name>
+          <name>$PROJ_DIR$\..\blade_ctrl\blade_ctrl.h</name>
         </file>
       </group>
       <file>
-        <name>$PROJ_DIR$\..\application\mill_ctrl\mill_ctrl.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\application\mill_ctrl\mill_ctrl.h</name>
+        <name>$PROJ_DIR$\..\mill_ctrl\mill_ctrl.c</name>
       </file>
     </group>
-    <file>
-      <name>$PROJ_DIR$\..\application\main.c</name>
-    </file>
   </group>
   <group>
     <name>Drivers</name>
@@ -1381,54 +1372,39 @@
     </group>
   </group>
   <group>
-    <name>HAL</name>
-    <group>
-      <name>gpio</name>
-      <file>
-        <name>$PROJ_DIR$\..\HAL\gpio\gpio.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\HAL\gpio\gpio.h</name>
-      </file>
-    </group>
-    <group>
-      <name>i2c</name>
-      <file>
-        <name>$PROJ_DIR$\..\HAL\i2c\i2c.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\HAL\i2c\i2c.h</name>
-      </file>
-    </group>
-    <group>
-      <name>timer</name>
-      <file>
-        <name>$PROJ_DIR$\..\HAL\timer\tim.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\HAL\timer\tim.h</name>
-      </file>
-    </group>
-    <group>
-      <name>uart</name>
-      <file>
-        <name>$PROJ_DIR$\..\HAL\uart\uart.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\HAL\uart\uart.h</name>
-      </file>
-    </group>
+    <name>User</name>
+  </group>
+  <group>
+    <name>User</name>
     <file>
       <name>$PROJ_DIR$\..\Src\freertos.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\HAL\stm32l4xx_hal_msp.c</name>
+      <name>$PROJ_DIR$\..\Src\gpio.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\HAL\stm32l4xx_hal_timebase_tim.c</name>
+      <name>$PROJ_DIR$\..\Src\i2c.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\HAL\stm32l4xx_it.c</name>
+      <name>$PROJ_DIR$\..\Src\main.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\spi.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\stm32l4xx_hal_msp.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\stm32l4xx_hal_timebase_tim.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\stm32l4xx_it.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\tim.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\usart.c</name>
     </file>
   </group>
 </project>
