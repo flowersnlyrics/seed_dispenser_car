@@ -1234,6 +1234,9 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\Src\usart.c</name>
+      <excluded>
+        <configuration>seedDispenserCar</configuration>
+      </excluded>
     </file>
   </group>
 </project>
