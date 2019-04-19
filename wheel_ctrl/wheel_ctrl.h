@@ -21,10 +21,10 @@ typedef enum
 } wheel_side_t; 
 
 /* ----------------------------------------------- Public Function Prototypes */
-void wheel_init(void); 
+void wheel_ctrl_init(void); 
 void wheel_ctrl_start(wheel_side_t motor_grp); 
 void wheel_ctrl_stop(wheel_side_t motor_grp); 
 void wheel_ctrl_rotation(wheel_side_t motor_grp, wheel_rotation_t rotation); 
-void wheel_ctrl_speed(wheel_side_t motor_grp, uint8_t speed); 
+void wheel_ctrl_speed(wheel_side_t motor_grp, uint8_t duty_cycle); 
 
 #endif /* __WHEEL_CTRL_H__ */

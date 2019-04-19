@@ -41,17 +41,20 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_TIM2_Init();
   //MX_USART2_UART_Init();
   MX_I2C1_Init();
   //accel_if_init(); 
   mag_ctrl_init(); 
   accel_ctrl_init(); 
+  wheel_ctrl_init(); 
+  car_ctrl_init(); 
   
   accel_read_t read; 
   accel_ctrl_get_read(&read); 
-  //loop(); 
   
+  car_test(); 
+  //loop(); 
+
   while(1)
   {
     // during testing, we can read the who am i registers with nice APIs */

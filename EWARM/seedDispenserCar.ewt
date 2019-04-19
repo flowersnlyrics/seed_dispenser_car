@@ -1238,6 +1238,9 @@
         <name>$PROJ_DIR$\..\mill_ctrl\mill_ctrl.c</name>
       </file>
     </group>
+    <file>
+      <name>$PROJ_DIR$\..\Src\main.c</name>
+    </file>
   </group>
   <group>
     <name>Drivers</name>
@@ -1373,9 +1376,6 @@
   </group>
   <group>
     <name>User</name>
-  </group>
-  <group>
-    <name>User</name>
     <file>
       <name>$PROJ_DIR$\..\Src\freertos.c</name>
     </file>
@@ -1384,9 +1384,6 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\Src\i2c.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\Src\main.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\Src\spi.c</name>

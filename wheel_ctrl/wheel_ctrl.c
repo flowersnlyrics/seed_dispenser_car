@@ -5,6 +5,7 @@
 
 /* ----------------------------------------------------------------- Includes */
 #include "wheel_ctrl.h"
+#include "tim.h"
 
 /* ------------------------------------------------------ Private Definitions */
 #define MOTOR_CTRL_RIGHT_PWM_Channel    TIM_CHANNEL_4
@@ -55,23 +56,38 @@ motor_grp_desc_t MOTOR_GRP_DESC[NUM_WHEEL_SIDES] =
   }
 }; 
 
+static uint32_t g_period = 0;
+
 /* ---------------------------------------------- Private Function Prototypes */
 
 /* ---------------------------------------------- Public Function Definitions */
-void wheel_init(void)
+
+/*******************************************************************************
+ * @fn      wheel_ctrl_init
+ * @brief   
+ ******************************************************************************/
+void wheel_ctrl_init(void)
 
 {
   // TODO put timer init here after stmcube shit is over 
+  MX_TIM2_Init(); 
+  g_period = htim2.Init.Period;
 }
 
-
+/*******************************************************************************
+ * @fn      wheel_ctrl_start
+ * @brief   
+ ******************************************************************************/
 void wheel_ctrl_start(wheel_side_t motor_grp)
 {
   HAL_TIM_PWM_Start_IT(&MOTOR_CTRL_PWM_Timer, 
                        MOTOR_GRP_DESC[motor_grp].tim_channel); 
 }
 
-
+/*******************************************************************************
+ * @fn      wheel_ctrl_stop
+ * @brief   
+ ******************************************************************************/
 void wheel_ctrl_stop(wheel_side_t motor_grp)
 {
   HAL_GPIO_WritePin(MOTOR_GRP_DESC[motor_grp].in1.port, 
@@ -87,7 +103,10 @@ void wheel_ctrl_stop(wheel_side_t motor_grp)
   
 }
 
-
+/*******************************************************************************
+ * @fn      wheel_ctrl_rotation
+ * @brief   
+ ******************************************************************************/
 void wheel_ctrl_rotation(wheel_side_t motor_grp, wheel_rotation_t rotation)
 {
   GPIO_PinState in1_state; 
@@ -118,10 +137,13 @@ void wheel_ctrl_rotation(wheel_side_t motor_grp, wheel_rotation_t rotation)
                     in0_state); 
 }
 
-
-void wheel_ctrl_speed(wheel_side_t motor, uint8_t speed)
+/*******************************************************************************
+ * @fn      wheel_ctrl_speed
+ * @brief   
+ ******************************************************************************/
+void wheel_ctrl_speed(wheel_side_t motor_grp, uint8_t duty_cycle)
 {
-  //float new_duty_cycle; 
-  
-  
+  __HAL_TIM_SET_COMPARE(&MOTOR_CTRL_PWM_Timer, 
+                        MOTOR_GRP_DESC[motor_grp].tim_channel, 
+                        (uint32_t)((duty_cycle/100.0) * g_period)); 
 }

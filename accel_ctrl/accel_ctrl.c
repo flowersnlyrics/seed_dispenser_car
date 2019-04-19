@@ -94,10 +94,10 @@ bool accel_ctrl_get_read(accel_read_t* read)
   
   do
   {
-  if(!accel_if_read_reg(STATUS_1, &status_1))
-  {
-    return false; 
-  }
+    if(!accel_if_read_reg(STATUS_1, &status_1))
+    {
+      return false; 
+    }
   } while(status_1 & 0x01 != 0x01);
   
   
