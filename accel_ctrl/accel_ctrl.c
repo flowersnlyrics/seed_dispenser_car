@@ -291,3 +291,13 @@ static float read_to_float(uint8_t msb, uint8_t lsb)
 
   return ret; 
 }
+
+/******************************************************************************
+ * @fn      accel_test
+ * @brief  
+ ******************************************************************************/
+void accel_test(void)
+{
+  uint8_t  WHO_IS_XG = 0x01; 
+  accel_if_read_reg(WHO_AM_I_XG, &WHO_IS_XG); 
+}

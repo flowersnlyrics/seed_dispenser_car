@@ -9,6 +9,6 @@
 
 /* ----------------------------------------------- Public Function Prototypes */
 bool mag_ctrl_init(void); 
-
+void mag_ctrl_test(void); 
 
 #endif /* __MAG_CTRL_H__ */

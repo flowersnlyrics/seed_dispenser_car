@@ -108,6 +108,14 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pin = LVL_SHIFTER_OE_2_Pin ; 
   HAL_GPIO_Init(LVL_SHIFTER_OE_2_GPIO_Port, &GPIO_InitStruct);
   
+  /* Testing the TIM6 timer */
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  
+  GPIO_InitStruct.Pin = GPIO_PIN_10; 
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  
   /*Configure GPIO pin : PtPin */
   GPIO_InitStruct.Pin = TACH_INT_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;

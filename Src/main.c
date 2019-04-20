@@ -10,16 +10,14 @@
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
-#include "wheel_ctrl.h" 
+/* My Modules */
 #include "car_ctrl.h"
-#include "blade_ctrl.h"
 #include "accel_ctrl.h"
-#include "mag_ctrl.h"
-//#include "accel_if.h"
-#include "mag_if.h"
+#include "tach_ctrl.h"
+#include "mill_ctrl.h"
+#include "blade_ctrl.h"
 
 /* Private Definitions -------------------------------------------------------*/
-uint8_t WHO_IS_MAG = 0x01, WHO_IS_XG = 0X01; // TODO: remove after test phase
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
@@ -41,26 +39,21 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  //MX_USART2_UART_Init();
   MX_I2C1_Init();
-  //accel_if_init(); 
-  mag_ctrl_init(); 
+  
+  /* Initialize control modules for tasks */
   accel_ctrl_init(); 
-  wheel_ctrl_init(); 
   car_ctrl_init(); 
+  mill_ctrl_init(); 
+  tach_ctrl_init(); 
   
-  accel_read_t read; 
-  accel_ctrl_get_read(&read); 
+  // todo DELETE AFTER DEBUGGING
+  //tim_start(&htim6);
   
-  car_test(); 
-  //loop(); 
-
-  while(1)
-  {
-    // during testing, we can read the who am i registers with nice APIs */
-    mag_if_read_reg(WHO_AM_I_M, &WHO_IS_MAG); 
-    accel_if_read_reg(WHO_AM_I_XG, &WHO_IS_XG); 
-  }
+  //loop();
+  //blade_ctrl_move(2); 
+  
+  /* Initialize tasks */
 
   /* Call init function for freertos objects (in freertos.c) */
   MX_FREERTOS_Init();
@@ -152,8 +145,14 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   /* USER CODE BEGIN Callback 0 */
 
   /* USER CODE END Callback 0 */
-  if (htim->Instance == TIM1) {
+  if (htim->Instance == TIM1) 
+  {
     HAL_IncTick();
+  }
+  else if (htim->Instance == TIM6)
+  {
+    HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_10); 
+    blade_ctrl_inc(); 
   }
   /* USER CODE BEGIN Callback 1 */
 

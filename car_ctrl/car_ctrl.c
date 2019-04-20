@@ -26,6 +26,8 @@ static bool g_car_running = false;
  ******************************************************************************/
 void car_ctrl_init(void)
 {
+  wheel_ctrl_init(); 
+  
   // Make sure car doesn't move at start up 
   car_ctrl_move(PARK); 
   // Set the speed to 0 :) 
@@ -120,7 +122,7 @@ void car_test(void)
   car_ctrl_start();
   car_ctrl_adjust_speed(&speed);
   
-  for(car_move_t move = ADVANCE; move < NUM_CAR_DIRS; move++)
+  /*for(car_move_t move = ADVANCE; move < NUM_CAR_DIRS; move++)
   {
     car_ctrl_move(move); 
     HAL_Delay(5000); 
@@ -134,16 +136,16 @@ void car_test(void)
   {
     car_ctrl_move(move); 
     HAL_Delay(5000); 
-  }
+  }*/
   
-  speed.left_duty_cycle = 30; 
-  speed.right_duty_cycle = 30;
+  speed.left_duty_cycle = 40; 
+  speed.right_duty_cycle = 40;
   car_ctrl_adjust_speed(&speed);
   
   for(car_move_t move = ADVANCE; move < NUM_CAR_DIRS; move++)
   {
     car_ctrl_move(move); 
-    HAL_Delay(5000); 
+    HAL_Delay(1000); 
   }
   
   car_ctrl_stop(); 

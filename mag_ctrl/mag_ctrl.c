@@ -84,3 +84,14 @@ static bool set_full_scale(fs_gauss_t fs)
 
   return false; 
 }
+
+/******************************************************************************
+ * @fn      mag_ctrl_test
+ * @brief  
+ * @return  
+ ******************************************************************************/
+void mag_ctrl_test(void)
+{
+  uint8_t WHO_IS_MAG = 0x01; 
+  mag_if_read_reg(WHO_AM_I_M, &WHO_IS_MAG); 
+}

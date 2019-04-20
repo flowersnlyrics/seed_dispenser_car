@@ -23,5 +23,6 @@ typedef struct
 /* ----------------------------------------------- Public Function Prototypes */
 bool accel_ctrl_init(void); 
 bool accel_ctrl_get_read(accel_read_t* read); 
+void accel_test(void); 
 
 #endif /* __ACCEL_CTRL_H__ */

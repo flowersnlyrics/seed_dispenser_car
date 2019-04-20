@@ -320,6 +320,7 @@
           <state>$PROJ_DIR$/../car_ctrl</state>
           <state>$PROJ_DIR$/../mag_ctrl</state>
           <state>$PROJ_DIR$/../mill_ctrl</state>
+          <state>$PROJ_DIR$/../tach_ctrl</state>
           <state>$PROJ_DIR$/../wheel_ctrl</state>
           <state>$PROJ_DIR$/../blade_ctrl</state>
           <state>$PROJ_DIR$/../if_adapters</state>
@@ -1059,6 +1060,18 @@
       </group>
       <file>
         <name>$PROJ_DIR$\..\mill_ctrl\mill_ctrl.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\mill_ctrl\mill_ctrl.h</name>
+      </file>
+    </group>
+    <group>
+      <name>tach_ctrl</name>
+      <file>
+        <name>$PROJ_DIR$\..\tach_ctrl\tach_ctrl.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\tach_ctrl\tach_ctrl.h</name>
       </file>
     </group>
     <file>

@@ -1237,6 +1237,18 @@
       <file>
         <name>$PROJ_DIR$\..\mill_ctrl\mill_ctrl.c</name>
       </file>
+      <file>
+        <name>$PROJ_DIR$\..\mill_ctrl\mill_ctrl.h</name>
+      </file>
+    </group>
+    <group>
+      <name>tach_ctrl</name>
+      <file>
+        <name>$PROJ_DIR$\..\tach_ctrl\tach_ctrl.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\tach_ctrl\tach_ctrl.h</name>
+      </file>
     </group>
     <file>
       <name>$PROJ_DIR$\..\Src\main.c</name>
