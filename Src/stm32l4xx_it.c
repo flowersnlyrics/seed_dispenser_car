@@ -222,6 +222,11 @@ void I2C1_ER_IRQHandler(void)
   /* USER CODE END I2C1_ER_IRQn 1 */
 }
 
+void TIM7_IRQHandler(void)
+{
+   HAL_TIM_IRQHandler(&htim7);
+}
+
 void TIM6_DAC_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM6_DAC_IRQn 0 */
@@ -237,7 +242,8 @@ void EXTI9_5_IRQHandler(void)
 {
   if(__HAL_GPIO_EXTI_GET_IT(SPARE_BUTTON_3_Pin)) 
   {
-   car_mgr_send_evt_from_isr(MOVE_SEEDER_EVT); 
+   //car_mgr_send_evt_from_isr(MOVE_SEEDER_EVT); 
+    tim_start(&htim7); 
     __HAL_GPIO_EXTI_CLEAR_IT(SPARE_BUTTON_3_Pin);
   }
   else if(__HAL_GPIO_EXTI_GET_IT(TACH_INT_Pin)) 

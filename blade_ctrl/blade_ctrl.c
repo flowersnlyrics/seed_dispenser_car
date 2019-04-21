@@ -9,7 +9,7 @@
 #include "main.h"
 #include "tim.h"
 
-#define TIME_PER_STEP 2000 // mns
+#define TIME_PER_STEP 1000 // ms
 
 /* ------------------------------------------------------ Private Definitions */
 int _step = 0; 

@@ -18,7 +18,7 @@
 #include "blade_ctrl.h"
 
 /* Private Definitions -------------------------------------------------------*/
-
+volatile uint32_t g_tim7_counter = 0; 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 void MX_FREERTOS_Init(void);
@@ -40,6 +40,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_I2C1_Init();
+  MX_TIM7_Init();
   
   /* Initialize control modules for tasks */
   accel_ctrl_init(); 
@@ -144,6 +145,15 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   {
     HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_10); 
     blade_ctrl_inc(); 
+  }
+  else if(htim->Instance == TIM7)
+  {
+    g_tim7_counter++;
+    
+    if(g_tim7_counter % 2)
+    {
+      car_mgr_send_evt_from_isr(MOVE_SEEDER_EVT);
+    }
   }
   /* USER CODE BEGIN Callback 1 */
 
