@@ -112,6 +112,10 @@ void Error_Handler(void);
 #define STOP_CAR_GPIO_Port GPIOA
 #define STOP_CAR_EXTI_IRQn EXTI15_10_IRQn
 
+#define SPARE_BUTTON_3_Pin GPIO_PIN_9
+#define SPARE_BUTTON_3_GPIO_Port GPIOA
+#define SPARE_BUTTON_3_EXTI_IRQn EXTI9_5_IRQn
+
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

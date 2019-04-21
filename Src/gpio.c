@@ -120,10 +120,14 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pin = TACH_INT_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
+  
   HAL_GPIO_Init(TACH_INT_GPIO_Port, &GPIO_InitStruct);
   
+  GPIO_InitStruct.Pin = SPARE_BUTTON_3_Pin;
+  HAL_GPIO_Init(SPARE_BUTTON_3_GPIO_Port, &GPIO_InitStruct);
+  
   /* EXTI interrupt init*/
-  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 6, 0);
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 7, 0);
   HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
   
    /*Configure GPIO pin : PtPin */

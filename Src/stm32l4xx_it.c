@@ -24,6 +24,7 @@
 #include "cmsis_os.h"
 #include "i2c.h"
 #include "car_mgr.h"
+#include "tach_ctrl.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 /* USER CODE END Includes */
@@ -232,6 +233,19 @@ void TIM6_DAC_IRQHandler(void)
   /* USER CODE END TIM6_DAC_IRQn 1 */
 }
 
+void EXTI9_5_IRQHandler(void)
+{
+  if(__HAL_GPIO_EXTI_GET_IT(SPARE_BUTTON_3_Pin)) 
+  {
+    __HAL_GPIO_EXTI_CLEAR_IT(SPARE_BUTTON_3_Pin);
+  }
+  else if(__HAL_GPIO_EXTI_GET_IT(TACH_INT_Pin)) 
+  {
+    tach_ctrl_inc(); 
+    __HAL_GPIO_EXTI_CLEAR_IT(TACH_INT_Pin);
+  }
+}
+
 void EXTI15_10_IRQHandler(void)
 {
   if(__HAL_GPIO_EXTI_GET_IT(START_CAR_Pin)) 
@@ -244,8 +258,6 @@ void EXTI15_10_IRQHandler(void)
    car_mgr_send_evt_from_isr(STOP_CAR_EVT); 
     __HAL_GPIO_EXTI_CLEAR_IT(STOP_CAR_Pin);
   }
-  
-  
 }
 
 
