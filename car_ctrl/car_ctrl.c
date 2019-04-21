@@ -41,7 +41,7 @@ void car_ctrl_init(void)
  ******************************************************************************/
 void car_ctrl_move(car_move_t move)
 {
-  if(g_car_running)
+  //if(g_car_running)
   {
     switch(move)
     {
@@ -104,10 +104,25 @@ void car_ctrl_adjust_speed(car_speed_t* speed)
  ******************************************************************************/
 void car_ctrl_stop(void)
 {
-  g_car_running = false; 
+  car_speed_t speed = {0, 0}; 
+  
+  //
+  // Set the wheels' rotation to no rotation 
+  //
   car_ctrl_move(PARK); 
+  //
+  // Adjust the duty cycle of the PWM driving the motors to be 0% 
+  //
+  car_ctrl_adjust_speed(&speed); 
+  //
+  // Stop the PWM on all wheels
+  //
   wheel_ctrl_stop(RIGHT_WHEELS); 
   wheel_ctrl_stop(LEFT_WHEELS);
+  //
+  // Set global status to be that the car is not running 
+  //
+  g_car_running = false; 
 }
 
 #ifdef DEBUG_CAR

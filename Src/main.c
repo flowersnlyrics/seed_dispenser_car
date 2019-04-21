@@ -12,7 +12,6 @@
 #include "gpio.h"
 /* My Modules */
 #include "car_mgr.h"
-//#include "car_ctrl.h"
 #include "accel_ctrl.h"
 #include "tach_ctrl.h"
 #include "mill_ctrl.h"
@@ -44,15 +43,8 @@ int main(void)
   
   /* Initialize control modules for tasks */
   accel_ctrl_init(); 
-  //car_ctrl_init(); 
   mill_ctrl_init(); 
   tach_ctrl_init(); 
-  
-  // todo DELETE AFTER DEBUGGING
-  //tim_start(&htim6);
-  
-  //loop();
-  //blade_ctrl_move(2); 
   
   /* Initialize tasks */
   car_mgr_init();

@@ -104,6 +104,14 @@ void Error_Handler(void);
 #define TACH_INT_GPIO_Port GPIOB
 #define TACH_INT_EXTI_IRQn EXTI9_5_IRQn
 
+#define START_CAR_Pin GPIO_PIN_10
+#define START_CAR_GPIO_Port GPIOA
+#define START_CAR_EXTI_IRQn EXTI10_15_IRQn
+
+#define STOP_CAR_Pin GPIO_PIN_12
+#define STOP_CAR_GPIO_Port GPIOA
+#define STOP_CAR_EXTI_IRQn EXTI15_10_IRQn
+
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

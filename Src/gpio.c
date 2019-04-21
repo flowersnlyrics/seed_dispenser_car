@@ -121,10 +121,30 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(TACH_INT_GPIO_Port, &GPIO_InitStruct);
-
+  
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI9_5_IRQn, 6, 0);
   HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+  
+   /*Configure GPIO pin : PtPin */
+  GPIO_InitStruct.Pin = START_CAR_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(START_CAR_GPIO_Port, &GPIO_InitStruct);
+  
+  GPIO_InitStruct.Pin = STOP_CAR_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(STOP_CAR_GPIO_Port, &GPIO_InitStruct);
+  
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 6, 0);
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+  
+  
+  
+
+  
 
 }
 

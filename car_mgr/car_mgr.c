@@ -130,13 +130,9 @@ static void task_main(void const * argument)
       }
       if( ( ulNotifiedValue & STOP_CAR_EVT ) != 0 )
       {
-        // Put the car in park 
-        car_ctrl_move(PARK);
-        // turn off the ignition
+        // Stop everything on the car!!!
+        // Note this calls car_ctrl_adjust_speed 
         car_ctrl_stop(); 
-        // set the speed to 0
-        car_speed_t speed = {0, 0}; 
-        car_ctrl_adjust_speed(&speed); 
       }
     }
   }
