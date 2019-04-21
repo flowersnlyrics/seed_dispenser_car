@@ -246,6 +246,15 @@ void EXTI9_5_IRQHandler(void)
   }
 }
 
+void EXTI3_IRQHandler(void)
+{
+  if(__HAL_GPIO_EXTI_GET_IT(SPARE_BUTTON_4_Pin)) 
+  {
+    __HAL_GPIO_EXTI_CLEAR_IT(SPARE_BUTTON_4_Pin);
+  }
+}
+
+
 void EXTI15_10_IRQHandler(void)
 {
   if(__HAL_GPIO_EXTI_GET_IT(START_CAR_Pin)) 

@@ -145,10 +145,12 @@ void MX_GPIO_Init(void)
   HAL_NVIC_SetPriority(EXTI15_10_IRQn, 6, 0);
   HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
   
+  GPIO_InitStruct.Pin = SPARE_BUTTON_4_Pin;
+  HAL_GPIO_Init(SPARE_BUTTON_4_GPIO_Port, &GPIO_InitStruct);
   
-  
-
-  
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI3_IRQn, 7, 0);
+  HAL_NVIC_EnableIRQ(EXTI3_IRQn);
 
 }
 

@@ -116,6 +116,11 @@ void Error_Handler(void);
 #define SPARE_BUTTON_3_GPIO_Port GPIOA
 #define SPARE_BUTTON_3_EXTI_IRQn EXTI9_5_IRQn
 
+
+#define SPARE_BUTTON_4_Pin GPIO_PIN_3
+#define SPARE_BUTTON_4_GPIO_Port GPIOB
+#define SPARE_BUTTON_4_EXTI_IRQn EXTI3_IRQn
+
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
