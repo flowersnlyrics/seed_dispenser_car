@@ -13,7 +13,8 @@
 #include "stm32l4xx_hal.h"
 #include <limits.h>
 #include <string.h>
-
+#include "blade_ctrl.h"
+   
 /* ------------------------------------------------------ Private Definitions */
 static osThreadDef_t g_thread_def;
 static osThreadId g_taskHandle;
@@ -133,6 +134,10 @@ static void task_main(void const * argument)
         // Stop everything on the car!!!
         // Note this calls car_ctrl_adjust_speed 
         car_ctrl_stop(); 
+      }
+      if( ( ulNotifiedValue & MOVE_SEEDER_EVT ) != 0 )
+      {
+        blade_ctrl_move(1); 
       }
     }
   }

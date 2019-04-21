@@ -237,6 +237,7 @@ void EXTI9_5_IRQHandler(void)
 {
   if(__HAL_GPIO_EXTI_GET_IT(SPARE_BUTTON_3_Pin)) 
   {
+   car_mgr_send_evt_from_isr(MOVE_SEEDER_EVT); 
     __HAL_GPIO_EXTI_CLEAR_IT(SPARE_BUTTON_3_Pin);
   }
   else if(__HAL_GPIO_EXTI_GET_IT(TACH_INT_Pin)) 

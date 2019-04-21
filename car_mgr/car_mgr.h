@@ -12,6 +12,7 @@ typedef enum
 {
   START_CAR_EVT = 0x00000001, 
   STOP_CAR_EVT  = 0x00000002, 
+  MOVE_SEEDER_EVT = 0x00000004
 } car_mgr_event_t;
 
 /* ----------------------------------------------- Public Function Prototypes */
