@@ -1170,22 +1170,70 @@
       </file>
     </group>
     <group>
-      <name>car_ctrl</name>
+      <name>car_mgr</name>
+      <file>
+        <name>$PROJ_DIR$\..\car_mgr\car_mgr.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\car_mgr\car_mgr.h</name>
+      </file>
+    </group>
+    <group>
+      <name>ctrls</name>
       <group>
-        <name>wheel_ctrl</name>
+        <name>car_ctrl</name>
+        <group>
+          <name>wheel_ctrl</name>
+          <file>
+            <name>$PROJ_DIR$\..\wheel_ctrl\wheel_ctrl.c</name>
+          </file>
+          <file>
+            <name>$PROJ_DIR$\..\wheel_ctrl\wheel_ctrl.h</name>
+          </file>
+        </group>
         <file>
-          <name>$PROJ_DIR$\..\wheel_ctrl\wheel_ctrl.c</name>
+          <name>$PROJ_DIR$\..\car_ctrl\car_ctrl.c</name>
         </file>
         <file>
-          <name>$PROJ_DIR$\..\wheel_ctrl\wheel_ctrl.h</name>
+          <name>$PROJ_DIR$\..\car_ctrl\car_ctrl.h</name>
         </file>
       </group>
-      <file>
-        <name>$PROJ_DIR$\..\car_ctrl\car_ctrl.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\car_ctrl\car_ctrl.h</name>
-      </file>
+      <group>
+        <name>mag_ctrl</name>
+        <file>
+          <name>$PROJ_DIR$\..\mag_ctrl\mag_ctrl.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\mag_ctrl\mag_ctrl.h</name>
+        </file>
+      </group>
+      <group>
+        <name>mill_ctrl</name>
+        <group>
+          <name>blade_ctrl</name>
+          <file>
+            <name>$PROJ_DIR$\..\blade_ctrl\blade_ctrl.c</name>
+          </file>
+          <file>
+            <name>$PROJ_DIR$\..\blade_ctrl\blade_ctrl.h</name>
+          </file>
+        </group>
+        <file>
+          <name>$PROJ_DIR$\..\mill_ctrl\mill_ctrl.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\mill_ctrl\mill_ctrl.h</name>
+        </file>
+      </group>
+      <group>
+        <name>tach_ctrl</name>
+        <file>
+          <name>$PROJ_DIR$\..\tach_ctrl\tach_ctrl.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\tach_ctrl\tach_ctrl.h</name>
+        </file>
+      </group>
     </group>
     <group>
       <name>if_adapters</name>
@@ -1214,44 +1262,11 @@
         </file>
       </group>
     </group>
-    <group>
-      <name>mag_ctrl</name>
-      <file>
-        <name>$PROJ_DIR$\..\mag_ctrl\mag_ctrl.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\mag_ctrl\mag_ctrl.h</name>
-      </file>
-    </group>
-    <group>
-      <name>mill_ctrl</name>
-      <group>
-        <name>blade_ctrl</name>
-        <file>
-          <name>$PROJ_DIR$\..\blade_ctrl\blade_ctrl.c</name>
-        </file>
-        <file>
-          <name>$PROJ_DIR$\..\blade_ctrl\blade_ctrl.h</name>
-        </file>
-      </group>
-      <file>
-        <name>$PROJ_DIR$\..\mill_ctrl\mill_ctrl.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\mill_ctrl\mill_ctrl.h</name>
-      </file>
-    </group>
-    <group>
-      <name>tach_ctrl</name>
-      <file>
-        <name>$PROJ_DIR$\..\tach_ctrl\tach_ctrl.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\tach_ctrl\tach_ctrl.h</name>
-      </file>
-    </group>
     <file>
       <name>$PROJ_DIR$\..\Src\main.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Inc\seed_car_freertos.h</name>
     </file>
   </group>
   <group>

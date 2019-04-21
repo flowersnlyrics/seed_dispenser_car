@@ -11,7 +11,8 @@
 #include "usart.h"
 #include "gpio.h"
 /* My Modules */
-#include "car_ctrl.h"
+#include "car_mgr.h"
+//#include "car_ctrl.h"
 #include "accel_ctrl.h"
 #include "tach_ctrl.h"
 #include "mill_ctrl.h"
@@ -43,7 +44,7 @@ int main(void)
   
   /* Initialize control modules for tasks */
   accel_ctrl_init(); 
-  car_ctrl_init(); 
+  //car_ctrl_init(); 
   mill_ctrl_init(); 
   tach_ctrl_init(); 
   
@@ -54,9 +55,7 @@ int main(void)
   //blade_ctrl_move(2); 
   
   /* Initialize tasks */
-
-  /* Call init function for freertos objects (in freertos.c) */
-  MX_FREERTOS_Init();
+  car_mgr_init();
 
   /* Start scheduler */
   osKernelStart();
