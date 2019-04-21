@@ -21,7 +21,6 @@
 volatile uint32_t g_tim7_counter = 0; 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-void MX_FREERTOS_Init(void);
 
 /**
   * @brief  The application entry point.
@@ -154,7 +153,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     {
       car_mgr_send_evt_from_isr(MOVE_SEEDER_EVT);
     }
+    if(g_tim7_counter % 30)
+    {
+      car_mgr_send_evt_from_isr(CHECK_PWM_EVT);
+    }
   }
+  
   /* USER CODE BEGIN Callback 1 */
 
   /* USER CODE END Callback 1 */

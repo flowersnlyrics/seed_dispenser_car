@@ -14,13 +14,33 @@
 #include <limits.h>
 #include <string.h>
 #include "blade_ctrl.h"
+#include "accel_ctrl.h"
    
 /* ------------------------------------------------------ Private Definitions */
 static osThreadDef_t g_thread_def;
 static osThreadId g_taskHandle;
 
+#define SLIDING_FILTER_SIZE 6
+
+typedef struct
+{
+  uint8_t head; 
+  uint8_t tail; 
+  uint32_t num_reads; 
+  float sum; 
+  float avg; 
+  accel_read_t reads[SLIDING_FILTER_SIZE];
+} accel_filter_t; 
+
+static accel_filter_t g_accel_filter; 
+
 /* ---------------------------------------------- Private Function Prototypes */
 static void task_main(void const * argument);
+static void moving_avg(accel_read_t* ptrArrNumbers, 
+                       float* ptrSum, 
+                       uint8_t pos,
+                       uint8_t nextNum);
+
    
 /* ---------------------------------------------- Public Function Definitions */
 /******************************************************************************
@@ -50,6 +70,10 @@ bool car_mgr_init(void)
   {
     return false;
   }
+  
+  memset(&g_accel_filter, 0, sizeof(accel_filter_t));
+  g_accel_filter.tail = 0; 
+  g_accel_filter.head = 5;
 
   return true; 
 }
@@ -120,14 +144,14 @@ static void task_main(void const * argument)
       if( ( ulNotifiedValue & START_CAR_EVT ) != 0 )
       {
         // Adjust the car to 50% duty cycle for the wheels
-        car_speed_t speed = {50, 50}; 
+        car_speed_t speed = {100, 100}; 
         car_ctrl_adjust_speed(&speed); 
         // Tell the car you're ready to start
         // at this point in the code the wheels are ready but the car is 
         // still in PARK :) 
         car_ctrl_start(); 
         // Tell the car to advance! 
-        car_ctrl_move(ADVANCE);
+        car_ctrl_move(RIGHT);
       }
       if( ( ulNotifiedValue & STOP_CAR_EVT ) != 0 )
       {
@@ -139,6 +163,59 @@ static void task_main(void const * argument)
       {
         blade_ctrl_move(1); 
       }
+      if( ( ulNotifiedValue & CHECK_PWM_EVT ) != 0 )
+      { 
+        if(g_accel_filter.num_reads < SLIDING_FILTER_SIZE) // if sliding filter isn't full 
+        {
+          accel_read_t* curr_read = &g_accel_filter.reads[g_accel_filter.num_reads];
+          accel_ctrl_get_read(curr_read);
+          g_accel_filter.sum += curr_read->y;
+          g_accel_filter.avg = g_accel_filter.sum /(g_accel_filter.num_reads + 1);
+        }
+        else
+        {
+          accel_read_t* curr_read = &g_accel_filter.reads[g_accel_filter.tail];
+          // subtract tail 
+          g_accel_filter.sum -= curr_read->y;
+          // get a new read 
+          accel_ctrl_get_read(curr_read);
+          g_accel_filter.sum += curr_read->y;
+          g_accel_filter.avg = g_accel_filter.sum / SLIDING_FILTER_SIZE; 
+          // head and tail mental gymnastics 
+          g_accel_filter.tail += 1; 
+
+          if(g_accel_filter.tail == (SLIDING_FILTER_SIZE - 1))
+          {
+            g_accel_filter.tail = 0; 
+          }
+        }
+        
+        
+        
+        g_accel_filter.num_reads++; 
+        
+        
+        //wheel_ctrl_speed(LEFT_WHEELS, 
+        //wheel_ctrl_speed(RIGHT_WHEELS, 
+      }
+      
     }
   }
+}
+
+
+
+
+
+
+
+static void moving_avg(accel_read_t* ptrArrNumbers, 
+                       float* ptrSum, 
+                       uint8_t pos,
+                       uint8_t nextNum)
+{
+  
+  
+  
+  
 }

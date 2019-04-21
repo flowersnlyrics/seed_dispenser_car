@@ -1004,6 +1004,18 @@
       </file>
     </group>
     <group>
+      <name>circular_buffer</name>
+      <excluded>
+        <configuration>seedDispenserCar</configuration>
+      </excluded>
+      <file>
+        <name>$PROJ_DIR$\..\circular_buffer\circular_buffer.h</name>
+        <excluded>
+          <configuration>seedDispenserCar</configuration>
+        </excluded>
+      </file>
+    </group>
+    <group>
       <name>ctrls</name>
       <group>
         <name>car_ctrl</name>
