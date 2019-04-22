@@ -30,15 +30,15 @@ static const uint8_t MIN_DUTY_CYCLE = 40;
 static const uint8_t NOM_DUTY_CYCLE = 60; 
 static float DELTA_PER_PERCENT = 0 ; 
 
-static const float MAX_INCLINE_G = 0.35; 
-static const float MIN_INCLINE_G = -0.35; 
+static const float MAX_INCLINE_G = 0.25; 
+static const float MIN_INCLINE_G = -0.25; 
 static const uint8_t MAX_DUTY_CYCLE_ADD = 10; 
 static const uint8_t MIN_DUTY_CYCLE_ADD = 0; 
 static const uint8_t NOM_DUTY_CYCLE_ADD = 5; 
 static float INCLINE_PER_PERCENT = 0; 
 
 
-static const float K_D = 1.0;
+static const float K_D = 0.1;
 static const float K_P = 1.0; 
 
 
@@ -220,19 +220,10 @@ static void task_main(void const * argument)
         g_accel_filter.num_reads++; 
 
         uint8_t duty_cycle = 0; 
-        
-        // debug start
-        
-        if(g_accel_filter.delta > 0.1)
-        {
-          int you_a_bitch = 0; 
-        }
-        
-        // debug end 
-        
+
         duty_cycle = (uint8_t)
                      (floor((K_D * (g_accel_filter.delta / DELTA_PER_PERCENT))
-                          + (K_P * (g_accel_filter.avg / INCLINE_PER_PERCENT))
+                          + (K_P * (curr_read->y / INCLINE_PER_PERCENT))
                           + NOM_DUTY_CYCLE )
                       ); 
         
