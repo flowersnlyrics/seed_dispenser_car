@@ -117,10 +117,16 @@ bool accel_if_reset(void)
  ******************************************************************************/
 static bool read(uint8_t* rx, uint8_t size)
 {
+   
+  if (!i2c_wait_for_i2c(&ACCEL_I2C_HANDLE))
+  { 
+    return false;
+  }
+  
   if (HAL_I2C_Master_Receive_IT(&ACCEL_I2C_HANDLE, 
                                 ACCEL_I2C_WRITE_ADDR, 
                                 rx, 
-                                size) 
+                                size)
       != HAL_OK)
   {
     return false;
@@ -143,11 +149,18 @@ static bool read(uint8_t* rx, uint8_t size)
  ******************************************************************************/
 static bool write(uint8_t* tx, uint8_t size)
 {
-  if (HAL_I2C_Master_Transmit_IT(&ACCEL_I2C_HANDLE, 
+   
+  if (!i2c_wait_for_i2c(&ACCEL_I2C_HANDLE))
+  { 
+    return false;
+  }
+  
+  HAL_StatusTypeDef status = HAL_I2C_Master_Transmit_IT(&ACCEL_I2C_HANDLE, 
                                  ACCEL_I2C_WRITE_ADDR, 
                                  tx, 
-                                 size) 
-      != HAL_OK)
+                                 size) ;
+  
+  if (status != HAL_OK)
   {
     return false;
   }

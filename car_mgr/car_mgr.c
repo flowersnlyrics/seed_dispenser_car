@@ -173,12 +173,15 @@ static void task_main(void const * argument)
         car_ctrl_start(); 
         // Tell the car to advance! 
         car_ctrl_move(ADVANCE);
+        // timer 7 controls when to adjust PWM
+        tim_start(&htim7);
       }
       if( ( ulNotifiedValue & STOP_CAR_EVT ) != 0 )
       {
         // Stop everything on the car!!!
         // Note this calls car_ctrl_adjust_speed 
         car_ctrl_stop(); 
+        tim_stop(&htim7);
       }
       if( ( ulNotifiedValue & MOVE_SEEDER_EVT ) != 0 )
       {
