@@ -34,12 +34,12 @@ static const float MAX_INCLINE_G = 0.25;
 static const float MIN_INCLINE_G = -0.25; 
 static const uint8_t MAX_DUTY_CYCLE_ADD = 10; 
 static const uint8_t MIN_DUTY_CYCLE_ADD = 0; 
-static const uint8_t NOM_DUTY_CYCLE_ADD = 5; 
 static float INCLINE_PER_PERCENT = 0; 
 
+static const float K_D = 0.08;
+static const float K_P = 1.0;
 
-static const float K_D = 0.1;
-static const float K_P = 1.0; 
+static bool g_seeder_on = false; 
 
 
 typedef struct
@@ -175,6 +175,7 @@ static void task_main(void const * argument)
         car_ctrl_move(ADVANCE);
         // timer 7 controls when to adjust PWM
         tim_start(&htim7);
+        g_seeder_on = true; 
       }
       if( ( ulNotifiedValue & STOP_CAR_EVT ) != 0 )
       {
@@ -182,10 +183,14 @@ static void task_main(void const * argument)
         // Note this calls car_ctrl_adjust_speed 
         car_ctrl_stop(); 
         tim_stop(&htim7);
+        g_seeder_on = false; 
       }
       if( ( ulNotifiedValue & MOVE_SEEDER_EVT ) != 0 )
       {
-        blade_ctrl_move(1); 
+        if(g_seeder_on)
+        {
+          blade_ctrl_move(1); 
+        }
       }
       if( ( ulNotifiedValue & CHECK_PWM_EVT ) != 0 )
       { 
@@ -238,9 +243,25 @@ static void task_main(void const * argument)
         {
           duty_cycle = MIN_DUTY_CYCLE; 
         }        
+        
+        if( ((duty_cycle >= 45) && (duty_cycle <= 54)) 
+             ||
+            ((duty_cycle >= 67))
+          )
+        {
+          g_seeder_on = false; 
+        }
+        else
+        {
+          g_seeder_on = true; 
+        }
 
         wheel_ctrl_speed(LEFT_WHEELS, duty_cycle);
         wheel_ctrl_speed(RIGHT_WHEELS, duty_cycle); 
+      }
+      if( ( ulNotifiedValue & STOP_SEEDER_EVT ) )
+      {
+        
       }
       
     }
